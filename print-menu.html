@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google" content="notranslate">
   <title>Mor – Menu (Print)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Cairo:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: "Cairo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       background: #17130e;
-      color: #ede3d2;
+      color: #f0e6d4;
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
@@ -20,180 +23,147 @@
       max-width: 210mm;
       margin: 0 auto;
       background: #17130e;
-      padding: 15mm 13mm 11mm;
+      padding: 15mm 14mm 11mm;
       min-height: 297mm;
     }
 
     .masthead { text-align: center; }
-    .masthead .logo { max-width: 130px; height: auto; }
+    .masthead .logo { max-width: 120px; height: auto; }
     .masthead .name {
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: "Playfair Display", Georgia, serif;
       font-size: 30px;
-      letter-spacing: 0.55em;
-      text-indent: 0.55em;
+      font-weight: 700;
+      letter-spacing: 0.5em;
+      text-indent: 0.5em;
       text-transform: uppercase;
-      color: #ede3d2;
-      margin-top: 5px;
+      color: #f4ecd9;
+      margin-top: 4px;
     }
     .masthead .rule {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      margin: 9px auto 13px;
-      max-width: 120px;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      margin: 8px auto 12px; max-width: 130px;
     }
-    .masthead .rule::before,
-    .masthead .rule::after {
-      content: "";
-      height: 1px;
-      width: 34px;
-      background: #c08a3e;
+    .masthead .rule::before, .masthead .rule::after {
+      content: ""; height: 1px; width: 36px; background: linear-gradient(90deg, transparent, #d8a95a);
     }
-    .masthead .rule span {
-      font-size: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #c08a3e;
-    }
+    .masthead .rule::after { background: linear-gradient(90deg, #d8a95a, transparent); }
+    .masthead .rule span { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #d8a95a; }
     .masthead .hours {
-      font-size: 11.5px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: #c9bda5;
+      font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #cfc4ae;
     }
-    .masthead .hours .ar {
-      display: block;
-      direction: rtl;
-      font-size: 11px;
-      letter-spacing: 0;
-      color: #9c9080;
-    }
+    .masthead .hours .ar { display: block; direction: rtl; font-size: 10.5px; letter-spacing: 0; color: #9a8f7c; }
 
-    .columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10mm 10mm;
-      margin-top: 9mm;
-    }
-
+    .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 12mm 11mm; margin-top: 9mm; }
     .group { break-inside: avoid; page-break-inside: avoid; }
 
+    /* ---- Category banner: numbered gold badge + gold rule, dark band ---- */
     .group-head {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: #c08a3e;
-      color: #1c160e;
-      padding: 7px 14px;
-      margin-bottom: 4mm;
+      display: flex; align-items: center; gap: 10px;
+      background: #201a14;
+      border: 1px solid rgba(216, 169, 90, 0.6);
+      border-left: 4px solid #d8a95a;
+      border-radius: 8px 8px 0 0;
+      padding: 6px 12px;
+      margin-bottom: 0;
     }
     .group-head .num {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: rgba(28, 22, 14, 0.55);
-      letter-spacing: 0;
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 700; font-size: 16px;
+      color: #d8a95a;
+      letter-spacing: 1px;
     }
-    .group-head .lang { display: flex; flex-direction: column; line-height: 1.15; flex: 1; }
+    .group-head .lang { display: flex; flex-direction: column; line-height: 1.15; flex: 1; min-width: 0; }
     .group-head .en {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 700; font-size: 15px;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: #f4ecd9;
     }
     .group-head .ar {
-      direction: rtl;
-      text-align: right;
-      font-size: 12.5px;
-      font-weight: 600;
-      letter-spacing: 0;
-      text-transform: none;
+      direction: rtl; text-align: right;
+      font-family: "Cairo", sans-serif;
+      font-weight: 700; font-size: 12px;
+      color: #efc77e;
     }
-    .group-head .icon { width: 30px; height: 30px; object-fit: contain; }
+    .group-head .ic { width: 26px; height: 26px; flex: none; }
+    .group-head + .items { border-top: none; }
+    .items { padding: 4mm 0 1.5mm; }
 
+    /* ---- Consolidated item rows ---- */
     .item {
       display: flex;
-      align-items: baseline;
-      padding: 0 0 2.6mm;
-      margin-bottom: 2.6mm;
-      border-bottom: 1px solid rgba(192, 138, 62, 0.35);
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 2.9mm 0;
+      border-bottom: 1px solid rgba(216, 169, 90, 0.18);
     }
     .item:last-child { border-bottom: none; }
-    .item .names { flex: 0 1 auto; min-width: 0; }
+
+    .item .names { min-width: 0; padding-top: 0.3mm; }
     .item .name {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 13px;
-      color: #ede3d2;
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 600; font-size: 13px; color: #f4ecd9;
       letter-spacing: 0.2px;
-      white-space: nowrap;
+    }
+    .item .name .tag {
+      font-family: "Cairo", sans-serif;
+      display: inline-block;
+      margin-left: 6px;
+      vertical-align: 2px;
+      font-weight: 700; font-size: 7.5px;
+      letter-spacing: 1px;
+      color: #2a1b10;
+      background: linear-gradient(135deg, #f2c67a, #d8a95a);
+      border-radius: 3px;
+      padding: 1px 6px;
+      text-transform: uppercase;
     }
     .item .ar {
-      direction: rtl;
-      text-align: right;
-      font-size: 11px;
-      color: #a49a88;
+      direction: rtl; text-align: right;
+      font-family: "Cairo", sans-serif;
+      font-weight: 600; font-size: 11px;
+      color: #e7dcc6;
     }
-    .item .leaders {
-      flex: 1;
-      border-bottom: 1px dotted rgba(192, 138, 62, 0.65);
-      margin: 0 5px 4px;
-      min-width: 14px;
+
+    .item .meta { margin-left: auto; text-align: right; flex: none; }
+    .item .variant {
+      display: flex; align-items: baseline; justify-content: flex-end;
+      gap: 7px; line-height: 1.45;
     }
-    .item .right {
-      text-align: right;
-      flex: none;
-      display: flex;
-      align-items: baseline;
-      gap: 3px;
+    .item .variant .sub {
+      font-size: 8.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: #d8a95a;
     }
-    .item .price {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 14px;
-      font-style: italic;
-      font-weight: 700;
-      color: #d8a95a;
+    .item .variant .oz { font-size: 9px; color: #a39682; }
+    .item .variant .price2 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 700; font-size: 13px; color: #f2c67a;
+      min-width: 5.2mm; text-align: right;
     }
-    .item .size { font-size: 9.5px; color: #8e8271; }
-    .riyal { height: 12px; width: auto; vertical-align: -1px; }
+    .riyal { height: 11px; width: auto; vertical-align: -1px; margin-left: 1px; }
 
     .colophon {
-      margin-top: 10mm;
-      padding-top: 4mm;
-      border-top: 1px solid rgba(192, 138, 62, 0.55);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8mm;
-      break-inside: avoid;
-      page-break-inside: avoid;
+      margin-top: 10mm; padding-top: 5mm;
+      border-top: 1px solid rgba(216, 169, 90, 0.4);
+      display: flex; align-items: center; justify-content: space-between; gap: 8mm;
+      break-inside: avoid; page-break-inside: avoid;
     }
-    .colophon .note { font-size: 10.5px; color: #a49a88; line-height: 1.6; }
-    .colophon .note b { color: #d8a95a; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 10px; }
+    .colophon .note { font-size: 10.5px; color: #b6ab97; line-height: 1.6; font-weight: 500; }
+    .colophon .note b { color: #f2c67a; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; font-size: 9.5px; }
     .colophon .note .ar { direction: rtl; text-align: right; }
-    .colophon img.qr { width: 74px; height: 74px; background: #f4efe6; padding: 2px; }
+    .colophon img.qr { width: 72px; height: 72px; background: #f4efe6; padding: 2px; }
 
     .print-btn {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      background: #c08a3e;
-      color: #1c160e;
-      border: none;
-      padding: 11px 16px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
+      position: fixed; right: 22px; bottom: 22px;
+      background: linear-gradient(135deg, #f2c67a, #d8a95a);
+      color: #2a1b10; border: none; padding: 11px 16px;
+      font-family: "Cairo", sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
       cursor: pointer;
-      font-family: inherit;
     }
-    .print-btn:hover { background: #d8a95a; }
+    .print-btn:hover { filter: brightness(1.06); }
 
-    @media (max-width: 640px) {
-      .columns { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 640px) { .columns { grid-template-columns: 1fr; } }
     @media print {
       body { background: #17130e !important; }
       .print-btn { display: none; }
@@ -527,12 +497,48 @@
   ]
 };
 
+    /* Gold line-art category icons */
     var ICONS = {
-      hot: "assets/HotDrinks.png",
-      coffee: "assets/coffee.png",
-      tea: "assets/Tea.png",
-      cold: "assets/coldDrinks.png"
+      hot: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#d8a95a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10.5h9v4a4.2 4.2 0 0 1-4.2 4.2h-0.6A4.2 4.2 0 0 1 5 14.5v-4Z"/><path d="M14 12h1.4a1.6 1.6 0 0 1 0 3.2h-1.4"/><path d="M7.2 6c-.6.6-.6 1.5 0 2.1"/><path d="M10.8 6c-.6.6-.6 1.5 0 2.1"/></svg>',
+      coffee: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#d8a95a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5C8.6 6.6 6 9.8 6 12.6 6 16.6 8.7 19.5 12 19.5s6-2.9 6-6.9C18 9.8 15.4 6.6 12 5Z"/><path d="M12 7.5v9"/><path d="M9.2 11.5c1-.8 1.9-1.5 2.8-2.6"/></svg>',
+      tea: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#d8a95a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 10h9v3.5a3.5 3.5 0 0 1-3.5 3.5H9a3.5 3.5 0 0 1-3.5-3.5V10Z"/><path d="M14.5 10.5H16a1.5 1.5 0 0 1 0 3h-1.5"/><path d="M8.8 6c0 .9.7 1.6.9 2.5"/></svg>',
+      cold: '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#d8a95a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5h10l1.9 4.9a5.6 5.6 0 0 1-2.4 6.6 5.6 5.6 0 0 1-3.5.7H11a5.6 5.6 0 0 1-3.9-7.3L7 3.5Z"/><path d="M9.3 4.5 7.3 9"/><rect x="10.3" y="10.2" width="1.9" height="1.9" rx="0.4"/></svg>'
     };
+
+    function esc(s) {
+      return String(s == null ? "" : s)
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function groupLabel(name) {
+      var m = name.match(/(Small|Large)\s*$/i);
+      return m ? m[1].toLowerCase() : "";
+    }
+    function baseName(name) {
+      return name.replace(/\s*[-–—]+\s*(Small|Large)\s*$/i, "").trim();
+    }
+    function tagFor(base, items) {
+      var e = (base || "").toLowerCase();
+      if (e.indexOf("spanish latte iced") === 0) return "Best Seller";
+      if (e.indexOf("matcha iced") === 0) return "Best Seller";
+      return "";
+    }
+
+    function buildGroups(section) {
+      var groups = [];
+      var byBase = {};
+      section.items.forEach(function (it) {
+        var base = baseName(it.en);
+        var g = byBase[base];
+        if (!g) {
+          g = { base: base, ar: it.ar, variants: [] };
+          byBase[base] = g;
+          groups.push(g);
+        }
+        g.variants.push({ label: groupLabel(it.en), size: it.size, price: it.price });
+      });
+      return groups;
+    }
 
     function render(data) {
       var bar = document.getElementById("hours");
@@ -557,31 +563,29 @@
         head.className = "group-head";
         var num = document.createElement("span");
         num.className = "num";
-        num.textContent = "0" + (i + 1);
+        num.textContent = ("0" + (i + 1)).slice(-2);
         head.appendChild(num);
 
         var langs = document.createElement("div");
         langs.className = "lang";
-        var en2 = document.createElement("span");
-        en2.className = "en";
-        en2.textContent = s.en;
-        var ar2 = document.createElement("span");
-        ar2.className = "ar";
-        ar2.textContent = s.ar;
-        langs.appendChild(en2);
-        langs.appendChild(ar2);
+        var en = document.createElement("span");
+        en.className = "en";
+        en.textContent = s.en;
+        var ar = document.createElement("span");
+        ar.className = "ar";
+        ar.textContent = s.ar;
+        langs.appendChild(en);
+        langs.appendChild(ar);
         head.appendChild(langs);
 
         if (s.icon && ICONS[s.icon]) {
-          var im = document.createElement("img");
-          im.className = "icon";
-          im.src = ICONS[s.icon];
-          im.alt = s.en;
-          head.appendChild(im);
+          head.insertAdjacentHTML("beforeend", ICONS[s.icon]);
         }
         g.appendChild(head);
 
-        s.items.forEach(function (it) {
+        var itemsBox = document.createElement("div");
+        itemsBox.className = "items";
+        buildGroups(s).forEach(function (gr) {
           var row = document.createElement("div");
           row.className = "item";
 
@@ -589,39 +593,52 @@
           names.className = "names";
           var nm = document.createElement("div");
           nm.className = "name";
-          nm.textContent = it.en;
+          nm.textContent = gr.base;
+          var tag = tagFor(gr.base);
+          if (tag) {
+            var tg = document.createElement("span");
+            tg.className = "tag";
+            tg.textContent = tag;
+            nm.appendChild(tg);
+          }
+          names.appendChild(nm);
           var na = document.createElement("div");
           na.className = "ar";
-          na.textContent = it.ar;
-          names.appendChild(nm);
+          na.textContent = gr.ar;
           names.appendChild(na);
 
-          var lead = document.createElement("div");
-          lead.className = "leaders";
-
-          var rightBox = document.createElement("div");
-          rightBox.className = "right";
-          var pr = document.createElement("span");
-          pr.className = "price";
-          pr.textContent = it.price;
-          var ry = document.createElement("img");
-          ry.className = "riyal";
-          ry.src = "assets/Saudi_Riyal_Symbol.svg";
-          ry.alt = "";
-          rightBox.appendChild(pr);
-          rightBox.appendChild(ry);
-          if (it.size) {
-            var sz = document.createElement("span");
-            sz.className = "size";
-            sz.textContent = it.size;
-            rightBox.appendChild(sz);
-          }
+          var meta = document.createElement("div");
+          meta.className = "meta";
+          gr.variants.forEach(function (v) {
+            var vrow = document.createElement("div");
+            vrow.className = "variant";
+            var sub = document.createElement("span");
+            sub.className = "sub";
+            sub.textContent = v.label ? v.label : "Standard";
+            vrow.appendChild(sub);
+            if (v.size) {
+              var oz = document.createElement("span");
+              oz.className = "oz";
+              oz.textContent = v.size;
+              vrow.appendChild(oz);
+            }
+            var pr = document.createElement("span");
+            pr.className = "price2";
+            pr.textContent = v.price;
+            vrow.appendChild(pr);
+            var ry = document.createElement("img");
+            ry.className = "riyal";
+            ry.src = "assets/Saudi_Riyal_Symbol.svg";
+            ry.alt = "";
+            vrow.appendChild(ry);
+            meta.appendChild(vrow);
+          });
 
           row.appendChild(names);
-          row.appendChild(lead);
-          row.appendChild(rightBox);
-          g.appendChild(row);
+          row.appendChild(meta);
+          itemsBox.appendChild(row);
         });
+        g.appendChild(itemsBox);
 
         (i < mid ? left : right).appendChild(g);
       });
@@ -637,9 +654,7 @@
         .then(function (r) { return r.text(); })
         .then(function (html) {
           var m = html.match(/<script id="menu-data" type="application\/json">([\s\S]*?)<\/script>/);
-          if (m) {
-            render(JSON.parse(m[1]));
-          }
+          if (m) render(JSON.parse(m[1]));
         })
         .catch(function () {});
     }
