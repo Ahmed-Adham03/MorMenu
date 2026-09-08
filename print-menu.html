@@ -29,29 +29,6 @@
 
     .masthead { text-align: center; }
     .masthead .logo { max-width: 150px; height: auto; }
-    .masthead .name {
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: 42px;
-      font-weight: 800;
-      letter-spacing: 0.5em;
-      text-indent: 0.5em;
-      text-transform: uppercase;
-      color: #111111;
-      margin-top: 6px;
-    }
-    .masthead .rule {
-      display: flex; align-items: center; justify-content: center; gap: 14px;
-      margin: 10px auto 14px; max-width: 170px;
-    }
-    .masthead .rule::before, .masthead .rule::after {
-      content: ""; height: 2px; width: 44px; background: linear-gradient(90deg, transparent, #C59B27);
-    }
-    .masthead .rule::after { background: linear-gradient(90deg, #C59B27, transparent); }
-    .masthead .rule span { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #C59B27; font-weight: 800; }
-    .masthead .hours {
-      font-size: 13.5px; letter-spacing: 2px; text-transform: uppercase; color: #33302C; font-weight: 700;
-    }
-    .masthead .hours .ar { display: block; direction: rtl; font-size: 13px; letter-spacing: 0; color: #4A453C; }
 
     .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 14mm 12mm; margin-top: 10mm; }
     .group { break-inside: avoid; page-break-inside: avoid; }
@@ -61,16 +38,8 @@
       display: flex; align-items: center; gap: 12px;
       background: linear-gradient(135deg, #D4A359 0%, #C59B27 100%);
       border-radius: 4px;
-      padding: 11px 14px;
-    }
-    .group-head .num {
-      font-family: "Playfair Display", Georgia, serif;
-      font-weight: 800; font-size: 18px;
-      color: #F6D48A;
-      background: #1C1A17;
-      width: 36px; height: 36px; flex: none;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 4px;
+      padding: 12px 18px;
+      position: relative;
     }
     .group-head .lang { display: flex; flex-direction: column; line-height: 1.15; flex: 1; min-width: 0; }
     .group-head .en {
@@ -86,14 +55,14 @@
       color: #33210C;
     }
     .group-head img.ic {
-      width: 33px; height: 33px; flex: none;
+      position: absolute;
+      top: -15px;
+      right: -12px;
+      width: 33px; height: 33px;
       object-fit: contain;
       border: 2px solid #FFF7E8;
       border-radius: 6px;
       background: #F2EBE1;
-      align-self: flex-start;
-      margin-top: -20px;
-      margin-right: -16px;
     }
     .items { padding: 5mm 1mm 2mm; }
 
@@ -164,16 +133,12 @@
   <div class="sheet">
     <div class="masthead">
       <img class="logo" src="assets/Logo.png" alt="Mor">
-      <div class="name">Mor</div>
-      <div class="rule"><span>Menu</span></div>
-      <div class="hours" id="hours"></div>
     </div>
 
     <div class="columns" id="columns"></div>
 
     <div class="colophon">
       <div class="note">
-        <b id="hoursNote"></b><br>
         Prices include VAT<br>
         <span class="ar">الأسعار شاملة ضريبة القيمة المضافة</span>
       </div>
@@ -495,14 +460,6 @@
     };
 
     function render(data) {
-      var bar = document.getElementById("hours");
-      bar.textContent = data.cafe.hours_en;
-      var barAr = document.createElement("span");
-      barAr.className = "ar";
-      barAr.textContent = data.cafe.hours_ar;
-      bar.appendChild(barAr);
-      document.getElementById("hoursNote").textContent = data.cafe.hours_en;
-
       var cols = document.getElementById("columns");
       cols.textContent = "";
       var left = document.createElement("div");
@@ -515,10 +472,6 @@
 
         var head = document.createElement("div");
         head.className = "group-head";
-        var num = document.createElement("span");
-        num.className = "num";
-        num.textContent = ("0" + (i + 1)).slice(-2);
-        head.appendChild(num);
 
         var langs = document.createElement("div");
         langs.className = "lang";
