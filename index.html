@@ -118,16 +118,99 @@
     <div class="columns" id="columns"></div>
   </div>
 
-  <script src="menu.js"></script>
+  <script id="menu-data" type="application/json">
+{
+  "cafe": { "en": "Our Menu" },
+  "sections": [
+    {
+      "en": "Hot Drinks",
+      "ar": "المشروبات الساخنة",
+      "items": [
+        { "ar": "سبانيش لاتيه صغير", "en": "Spanish Latte Hot – Small", "size": "9 oz", "price": "11" },
+        { "ar": "سبانيش لاتيه كبير", "en": "Spanish Latte Hot – Large", "size": "12 oz", "price": "13" },
+        { "ar": "كابتشينو صغير", "en": "Cappuccino – Small", "size": "9 oz", "price": "10" },
+        { "ar": "كابتشينو كبير", "en": "Cappuccino – Large", "size": "12 oz", "price": "12" },
+        { "ar": "كورتدو", "en": "Cortado", "size": "7 oz", "price": "9" },
+        { "ar": "ماكياتو", "en": "Macchiato", "size": "7 oz", "price": "9" },
+        { "ar": "فلات وايت", "en": "Flat White", "size": "9 oz", "price": "11" },
+        { "ar": "لاتيه صغير", "en": "Latte – Small", "size": "9 oz", "price": "10" },
+        { "ar": "لاتيه كبير", "en": "Latte – Large", "size": "12 oz", "price": "12" },
+        { "ar": "هوت شوكليت صغير", "en": "Hot Chocolate – Small", "size": "9 oz", "price": "8" },
+        { "ar": "هوت شوكليت كبير", "en": "Hot Chocolate – Large", "size": "12 oz", "price": "11" },
+        { "ar": "ماتشا ساخن", "en": "Matcha Hot", "size": "9 oz", "price": "12" }
+      ]
+    },
+    {
+      "en": "Coffee",
+      "ar": "القهوة",
+      "items": [
+        { "ar": "قهوة اليوم صغير (ساخن)", "en": "Today's Coffee Hot – Small", "size": "9 oz", "price": "4.5" },
+        { "ar": "قهوة اليوم صغير (بارد)", "en": "Today's Coffee Iced – Small", "size": "9 oz", "price": "4.5" },
+        { "ar": "قهوة اليوم كبير (ساخن)", "en": "Today's Coffee Hot – Large", "size": "12 oz", "price": "6.9" },
+        { "ar": "قهوة اليوم كبير (بارد)", "en": "Today's Coffee Iced – Large", "size": "12 oz", "price": "6.9" },
+        { "ar": "V60 صغير (ساخن)", "en": "V60 Hot – Small", "size": "11 oz", "price": "10" },
+        { "ar": "V60 كبير (ساخن)", "en": "V60 Hot – Large", "size": "12 oz", "price": "12" },
+        { "ar": "V60 صغير (بارد)", "en": "V60 Iced – Small", "size": "11 oz", "price": "10" },
+        { "ar": "V60 كبير (بارد)", "en": "V60 Iced – Large", "size": "12 oz", "price": "12" },
+        { "ar": "أمريكانو", "en": "Americano", "size": "9 oz", "price": "9" },
+        { "ar": "إسبريسو سنقل", "en": "Espresso Single", "size": "7 oz", "price": "5" },
+        { "ar": "إسبريسو دبل", "en": "Espresso Double", "size": "7 oz", "price": "8" },
+        { "ar": "قهوة تركي صغير", "en": "Turkish Coffee – Small", "size": "7 oz", "price": "7" },
+        { "ar": "قهوة تركي كبير", "en": "Turkish Coffee – Large", "size": "9 oz", "price": "9" }
+      ]
+    },
+    {
+      "en": "Tea",
+      "ar": "الشاي",
+      "items": [
+        { "ar": "شاي كرك", "en": "Karak Tea", "size": "9 oz", "price": "5" },
+        { "ar": "شاي إنجليزي", "en": "English Tea", "size": "9 oz", "price": "5" },
+        { "ar": "شاي عادي", "en": "Regular Tea", "size": "9 oz", "price": "3" },
+        { "ar": "شاي بالحليب", "en": "Milk Tea", "size": "9 oz", "price": "4" }
+      ]
+    },
+    {
+      "en": "Cold Drinks",
+      "ar": "المشروبات الباردة",
+      "items": [
+        { "ar": "كركدية صغير", "en": "Hibiscus – Small", "size": "11 oz", "price": "8" },
+        { "ar": "كركدية كبير", "en": "Hibiscus – Large", "size": "16 oz", "price": "9" },
+        { "ar": "سبانيش لاتيه ايس صغير", "en": "Spanish Latte Iced – Small", "size": "12 oz", "price": "12" },
+        { "ar": "سبانيش لاتيه ايس كبير", "en": "Spanish Latte Iced – Large", "size": "16 oz", "price": "15" },
+        { "ar": "ماتشا ايس", "en": "Matcha Iced", "size": "12 oz", "price": "14" },
+        { "ar": "تي ايس صغير", "en": "Iced Tea – Small", "size": "12 oz", "price": "12" },
+        { "ar": "تي ايس كبير", "en": "Iced Tea – Large", "size": "16 oz", "price": "15" },
+        { "ar": "أمريكانو ايس", "en": "Iced Americano", "size": "12 oz", "price": "10" },
+        { "ar": "لاتيه ايس", "en": "Iced Latte", "size": "12 oz", "price": "12" },
+        { "ar": "ماكياتو كراميل ايس", "en": "Iced Caramel Macchiato", "size": "13 oz", "price": "13" },
+        { "ar": "لاتيه بيستاشيو ايس", "en": "Iced Pistachio Latte", "size": "12 oz", "price": "14" },
+        { "ar": "موكا وايت ايس", "en": "Iced White Mocha", "size": "12 oz", "price": "13" },
+        { "ar": "موكا ايس صغير", "en": "Mocha Iced – Small", "size": "12 oz", "price": "12" },
+        { "ar": "موكا ايس كبير", "en": "Mocha Iced – Large", "size": "16 oz", "price": "15" },
+        { "ar": "موهيتو ايس", "en": "Mojito Iced", "size": "12 oz", "price": "10" }
+      ]
+    }
+  ]
+}
+  </script>
   <script>
-    var cfg = morLoad();
-    document.getElementById("subtitle").textContent = cfg.cafe.en;
+    var data = JSON.parse(document.getElementById("menu-data").textContent);
+    document.getElementById("subtitle").textContent = data.cafe.en;
 
+    var columns = document.getElementById("columns");
     var left = document.createElement("div");
     var right = document.createElement("div");
-    var mid = Math.ceil(cfg.sections.length / 2);
+    var mid = Math.ceil(data.sections.length / 2);
 
-    cfg.sections.forEach(function (section, i) {
+    function esc(s) {
+      return String(s == null ? "" : s)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    data.sections.forEach(function (section, i) {
       var sec = document.createElement("section");
 
       var head = document.createElement("div");
@@ -146,34 +229,33 @@
         var row = document.createElement("div");
         row.className = "item";
 
-        var leftBox = document.createElement("div");
-        leftBox.className = "item-left";
+        var lb = document.createElement("div");
+        lb.className = "item-left";
         var ar = document.createElement("span");
         ar.className = "item-ar";
         ar.textContent = item.ar;
         var en = document.createElement("span");
         en.className = "item-name";
         en.textContent = item.en;
-        leftBox.appendChild(ar);
-        leftBox.appendChild(en);
+        lb.appendChild(ar);
+        lb.appendChild(en);
 
-        var rightBox = document.createElement("div");
-        rightBox.className = "item-right";
-        rightBox.innerHTML =
-          '<span class="size">' + morEscape(item.size) + '</span> &nbsp; ' +
-          '<span class="price">' + morEscape(item.price) + "</span> SR";
+        var rb = document.createElement("div");
+        rb.className = "item-right";
+        rb.innerHTML =
+          '<span class="size">' + esc(item.size) + '</span> &nbsp; ' +
+          '<span class="price">' + esc(item.price) + "</span> SR";
 
-        row.appendChild(leftBox);
-        row.appendChild(rightBox);
+        row.appendChild(lb);
+        row.appendChild(rb);
         sec.appendChild(row);
       });
 
       (i < mid ? left : right).appendChild(sec);
     });
 
-    var cols = document.getElementById("columns");
-    cols.appendChild(left);
-    cols.appendChild(right);
+    columns.appendChild(left);
+    columns.appendChild(right);
   </script>
 </body>
 </html>
