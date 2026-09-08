@@ -33,38 +33,47 @@
     .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 14mm 12mm; margin-top: 10mm; }
     .group { break-inside: avoid; page-break-inside: avoid; }
 
-    /* ---- Solid gold banner header, no outline box ---- */
+    /* ---- Typographic category header, no fill ---- */
     .group-head {
-      display: flex; align-items: center; gap: 12px;
-      background: linear-gradient(135deg, #D4A359 0%, #C59B27 100%);
-      border-radius: 4px;
-      padding: 12px 18px;
       position: relative;
+      display: flex; flex-direction: column;
+      padding: 0 0 12px;
+      margin-bottom: 2mm;
+      border-top: 3px solid #C59B27;
     }
-    .group-head .lang { display: flex; flex-direction: column; line-height: 1.15; flex: 1; min-width: 0; }
+    .group-head .lang { display: flex; flex-direction: column; line-height: 1.12; flex: 1; min-width: 0; }
     .group-head .en {
       font-family: "Playfair Display", Georgia, serif;
-      font-weight: 800; font-size: 21px;
-      letter-spacing: 2px; text-transform: uppercase;
-      color: #1D1406;
+      font-weight: 800; font-size: 30px;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: #111111;
+      line-height: 1.1;
+    }
+    .group-head .en::after {
+      content: "";
+      display: block;
+      width: 70px; height: 5px;
+      background: #C59B27;
+      margin-top: 8px;
     }
     .group-head .ar {
       direction: rtl; text-align: right;
       font-family: "Cairo", sans-serif;
-      font-weight: 800; font-size: 15.5px;
-      color: #33210C;
+      font-weight: 800; font-size: 20px;
+      color: #1B1A17;
+      margin-top: 6px;
     }
     .group-head img.ic {
       position: absolute;
-      top: -15px;
-      right: -12px;
-      width: 33px; height: 33px;
+      top: -14px;
+      right: 0;
+      width: 38px; height: 38px;
       object-fit: contain;
-      border: 2px solid #FFF7E8;
-      border-radius: 6px;
-      background: #F2EBE1;
+      border: 2px solid #C59B27;
+      border-radius: 8px;
+      background: #FAF8F5;
     }
-    .items { padding: 5mm 1mm 2mm; }
+    .items { padding: 3mm 1mm 2mm; }
 
     /* ---- One row per size entry, generous print spacing ---- */
     .item {
@@ -72,7 +81,7 @@
       justify-content: space-between;
       align-items: flex-start;
       gap: 12px;
-      padding: 12px 0;
+      padding: 13px 0;
       border-bottom: 1px solid rgba(197, 155, 39, 0.35);
     }
     .item:last-child { border-bottom: none; }
@@ -80,25 +89,25 @@
     .item .names { min-width: 0; }
     .item .name {
       font-family: "Playfair Display", Georgia, serif;
-      font-weight: 700; font-size: 18px; color: #111111;
+      font-weight: 700; font-size: 20px; color: #111111;
       letter-spacing: 0.2px;
     }
     .item .ar {
       direction: rtl; text-align: right;
       font-family: "Cairo", sans-serif;
-      font-weight: 700; font-size: 15px;
+      font-weight: 700; font-size: 17px;
       color: #1B1A17;
     }
 
-    .item .meta { margin-left: auto; text-align: right; flex: none; display: flex; align-items: baseline; gap: 9px; padding-top: 1px; }
-    .item .meta .oz { font-size: 13.5px; font-weight: 700; color: #5A5142; }
-    .item .meta .divider { width: 1px; height: 13px; background: rgba(197, 155, 39, 0.5); }
+    .item .meta { margin-left: auto; text-align: right; flex: none; display: flex; align-items: baseline; gap: 10px; padding-top: 1px; }
+    .item .meta .oz { font-size: 15px; font-weight: 700; color: #4A4238; }
+    .item .meta .divider { width: 2px; height: 14px; background: rgba(197, 155, 39, 0.5); }
     .item .meta .price {
       font-family: "Playfair Display", Georgia, serif;
-      font-weight: 700; font-size: 19px; color: #111111;
-      min-width: 6.5mm; text-align: right;
+      font-weight: 700; font-size: 22px; color: #111111;
+      min-width: 7mm; text-align: right;
     }
-    .riyal { height: 14px; width: auto; vertical-align: -2px; margin-left: 1px; filter: brightness(0) saturate(100%) invert(58%) sepia(42%) saturate(740%) hue-rotate(6deg) brightness(0.93); }
+    .riyal { height: 16px; width: auto; vertical-align: -2px; margin-left: 1px; filter: brightness(0) saturate(100%) invert(58%) sepia(42%) saturate(740%) hue-rotate(6deg) brightness(0.93); }
 
     .colophon {
       margin-top: 12mm; padding-top: 6mm;
@@ -106,10 +115,8 @@
       display: flex; align-items: center; justify-content: space-between; gap: 8mm;
       break-inside: avoid; page-break-inside: avoid;
     }
-    .colophon .note { font-size: 12.5px; color: #1B1A17; line-height: 1.7; font-weight: 700; }
-    .colophon .note b { color: #8A6A15; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; font-size: 11.5px; }
-    .colophon .note .ar { direction: rtl; text-align: right; }
-    .colophon img.qr { width: 84px; height: 84px; background: #FFFFFF; padding: 3px; border: 2px solid #C59B27; }
+    .colophon .note { font-size: 13.5px; color: #1B1A17; line-height: 1.7; font-weight: 700; }
+    .colophon img.qr { width: 88px; height: 88px; background: #FFFFFF; padding: 3px; border: 2px solid #C59B27; }
 
     .print-btn {
       position: fixed; right: 22px; bottom: 22px;
