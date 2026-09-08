@@ -39,6 +39,19 @@
       letter-spacing: -0.3px;
     }
 
+    .menu-hours {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #6e6e73;
+    }
+
+    .menu-hours-ar {
+      margin-top: 2px;
+      font-size: 14px;
+      color: #6e6e73;
+      direction: rtl;
+    }
+
     .columns {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -46,6 +59,12 @@
     }
 
     section { margin-bottom: 40px; }
+
+    .section-icon {
+      font-size: 26px;
+      text-align: center;
+      margin-bottom: 6px;
+    }
 
     .section-header {
       display: flex;
@@ -86,7 +105,7 @@
     .item-ar {
       display: block;
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 400;
       font-family: system-ui, -apple-system, 'Segoe UI', Tahoma, Arial, sans-serif;
       color: #1d1d1f;
       direction: rtl;
@@ -114,15 +133,22 @@
     <div class="menu-header">
       <img class="logo" src="Logo.png" alt="Mor">
       <p class="menu-subtitle" id="subtitle"></p>
+      <p class="menu-hours" id="hours"></p>
+      <p class="menu-hours-ar" id="hoursAr"></p>
     </div>
     <div class="columns" id="columns"></div>
   </div>
 
   <script id="menu-data" type="application/json">
 {
-  "cafe": { "en": "Our Menu" },
+  "cafe": {
+    "en": "Our Menu",
+    "hours_en": "Daily 7 AM – 12 AM",
+    "hours_ar": "يومياً من ٧ صباحاً حتى ١٢ مساءً"
+  },
   "sections": [
     {
+      "icon": "🔥",
       "en": "Hot Drinks",
       "ar": "المشروبات الساخنة",
       "items": [
@@ -141,6 +167,7 @@
       ]
     },
     {
+      "icon": "☕",
       "en": "Coffee",
       "ar": "القهوة",
       "items": [
@@ -160,6 +187,7 @@
       ]
     },
     {
+      "icon": "🍵",
       "en": "Tea",
       "ar": "الشاي",
       "items": [
@@ -170,6 +198,7 @@
       ]
     },
     {
+      "icon": "🧊",
       "en": "Cold Drinks",
       "ar": "المشروبات الباردة",
       "items": [
@@ -196,6 +225,8 @@
   <script>
     var data = JSON.parse(document.getElementById("menu-data").textContent);
     document.getElementById("subtitle").textContent = data.cafe.en;
+    if (data.cafe.hours_en) document.getElementById("hours").textContent = data.cafe.hours_en;
+    if (data.cafe.hours_ar) document.getElementById("hoursAr").textContent = data.cafe.hours_ar;
 
     var columns = document.getElementById("columns");
     var left = document.createElement("div");
@@ -212,6 +243,13 @@
 
     data.sections.forEach(function (section, i) {
       var sec = document.createElement("section");
+
+      if (section.icon) {
+        var icon = document.createElement("div");
+        icon.className = "section-icon";
+        icon.textContent = section.icon;
+        sec.appendChild(icon);
+      }
 
       var head = document.createElement("div");
       head.className = "section-header";
