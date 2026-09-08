@@ -61,9 +61,15 @@
     section { margin-bottom: 40px; }
 
     .section-icon {
-      font-size: 26px;
       text-align: center;
       margin-bottom: 6px;
+      color: #1d1d1f;
+      line-height: 0;
+    }
+
+    .section-icon svg {
+      width: 30px;
+      height: 30px;
     }
 
     .section-header {
@@ -148,7 +154,7 @@
   },
   "sections": [
     {
-      "icon": "🔥",
+      "icon": "hot",
       "en": "Hot Drinks",
       "ar": "المشروبات الساخنة",
       "items": [
@@ -167,7 +173,7 @@
       ]
     },
     {
-      "icon": "☕",
+      "icon": "coffee",
       "en": "Coffee",
       "ar": "القهوة",
       "items": [
@@ -187,7 +193,7 @@
       ]
     },
     {
-      "icon": "🍵",
+      "icon": "tea",
       "en": "Tea",
       "ar": "الشاي",
       "items": [
@@ -198,7 +204,7 @@
       ]
     },
     {
-      "icon": "🧊",
+      "icon": "cold",
       "en": "Cold Drinks",
       "ar": "المشروبات الباردة",
       "items": [
@@ -233,6 +239,16 @@
     var right = document.createElement("div");
     var mid = Math.ceil(data.sections.length / 2);
 
+    var ICONS = {
+      hot: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 9.5h11v5a4.5 4.5 0 0 1-4.5 4.5H9a4.5 4.5 0 0 1-4.5-4.5v-5Z"/><path d="M15.5 11.5H17a1.75 1.75 0 0 1 0 3.5h-1.5"/><path d="M8 4.5c-.7.8-.7 1.9 0 2.7"/><path d="M12 4.5c-.7.8-.7 1.9 0 2.7"/></svg>',
+      coffee: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C8 4.8 5 8.7 5 11.8 5 16.9 8.2 21 12 21s7-4.1 7-9.2C19 8.7 16 4.8 12 3Z"/><path d="M12 6v12"/><path d="M8.5 11.5c1.2-.9 2.4-1.8 3.5-3"/></svg>',
+      tea: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 10h11v4a4.5 4.5 0 0 1-4.5 4.5H9A4.5 4.5 0 0 1 4.5 14v-4Z"/><path d="M15.5 11H17a1.75 1.75 0 0 1 0 3.5h-1.5"/><path d="M8.5 5c0 1 .8 1.8 1 2.8"/></svg>',
+      cold: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h10l2.2 5.5A6.2 6.2 0 0 1 12 16a6.2 6.2 0 0 1-7.2-7.5L7 3Z"/><path d="M9.5 4L7 9.5"/><rect x="10" y="9" width="2.2" height="2.2" rx="0.5"/></svg>',
+      star: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/></svg>',
+      leaf: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19C5 8 13 4 20 4c0 7-4 15-15 15Z"/><path d="M5 19c3-3 6-6 9-8"/></svg>',
+      heart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.4-7 10-7 10Z"/></svg>'
+    };
+
     function esc(s) {
       return String(s == null ? "" : s)
         .replace(/&/g, "&amp;")
@@ -247,7 +263,11 @@
       if (section.icon) {
         var icon = document.createElement("div");
         icon.className = "section-icon";
-        icon.textContent = section.icon;
+        if (ICONS[section.icon]) {
+          icon.innerHTML = ICONS[section.icon];
+        } else {
+          icon.textContent = section.icon;
+        }
         sec.appendChild(icon);
       }
 
@@ -282,7 +302,7 @@
         rb.className = "item-right";
         rb.innerHTML =
           '<span class="size">' + esc(item.size) + '</span> &nbsp; ' +
-          '<span class="price">' + esc(item.price) + "</span> SR";
+          '<span class="price">' + esc(item.price) + "</span> ﷼";
 
         row.appendChild(lb);
         row.appendChild(rb);
