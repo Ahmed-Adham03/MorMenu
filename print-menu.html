@@ -35,32 +35,34 @@
     .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 5mm; margin-top: 0; }
     .group { break-inside: avoid; page-break-inside: avoid; }
 
-    /* ---- Flat, ultra-compact category header (no card/fill) ---- */
+    /* ---- Solid gold category banner (no numbers) ---- */
     .group-head {
-      display: flex; align-items: baseline; gap: 7px;
-      padding: 1px 0 2px;
-      margin-bottom: 0;
-      border-bottom: 2px solid #D4A359;
+      display: flex; align-items: center; gap: 8px;
+      background: linear-gradient(90deg, #E4B96B 0%, #D4A359 100%);
+      border-radius: 3px;
+      padding: 3px 9px;
+      margin-bottom: 1mm;
     }
     .group-head .en {
       font-family: "Playfair Display", Georgia, serif;
       font-weight: 800; font-size: 15px;
       letter-spacing: 1.5px; text-transform: uppercase;
-      color: #111111;
+      color: #201507;
       line-height: 1.1;
     }
     .group-head .ar {
       direction: rtl; text-align: right;
       font-family: "Cairo", sans-serif;
       font-weight: 800; font-size: 12px;
-      color: #1B1A17;
+      color: #33210C;
       margin-left: auto;
       line-height: 1.1;
     }
     .group-head img.ic {
-      width: 17px; height: 17px; flex: none;
+      width: 18px; height: 18px; flex: none;
       object-fit: contain;
-      align-self: center;
+      border: 1.5px solid #FFF7E8;
+      border-radius: 4px;
     }
 
     /* ---- Column labels فوق المقاس والسعر ---- */
