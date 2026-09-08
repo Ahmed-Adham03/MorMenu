@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Menu</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap { max-width: 860px; margin: 0 auto; padding: 32px 20px 100px; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(245, 245, 247, 0.9);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid #d2d2d7;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .topbar h1 { font-size: 20px; font-weight: 600; letter-spacing: -0.3px; }
+
+    .topbar-actions { display: flex; gap: 10px; align-items: center; }
+
+    .btn {
+      border: none;
+      border-radius: 8px;
+      padding: 9px 16px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-blue { background: #0071e3; color: #fff; }
+    .btn-blue:hover { background: #0077ed; }
+    .btn-gray { background: #d2d2d7; color: #1d1d1f; }
+    .btn-gray:hover { background: #c7c7cc; }
+    .btn-link { background: none; color: #0066cc; padding: 9px 8px; }
+    .btn-link:hover { text-decoration: underline; }
+
+    .status {
+      font-size: 13px;
+      color: #0071e3;
+      min-height: 18px;
+    }
+
+    .cafe-input {
+      width: 100%;
+      border: 1px solid #d2d2d7;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 15px;
+      background: #fff;
+      color: #1d1d1f;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e8e8ed;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .card-title { font-size: 17px; font-weight: 600; }
+
+    .side-inputs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 12px;
+      color: #86868b;
+      margin-bottom: 4px;
+    }
+
+    .field input {
+      width: 100%;
+      border: 1px solid #d2d2d7;
+      border-radius: 8px;
+      padding: 9px 11px;
+      font-size: 15px;
+      background: #fff;
+      color: #1d1d1f;
+    }
+
+    .field input:focus, .cafe-input:focus, .section-en:focus, .section-ar:focus {
+      outline: 2px solid #0071e3;
+      outline-offset: -1px;
+    }
+
+    .item-row {
+      display: grid;
+      grid-template-columns: 1.4fr 1.4fr 0.7fr 0.7fr auto;
+      gap: 10px;
+      align-items: end;
+      padding: 10px 0;
+      border-top: 1px solid #f0f0f2;
+    }
+
+    .remove-btn, .add-item-btn, .add-sec-btn {
+      background: none;
+      border: 1px solid #d2d2d7;
+      border-radius: 8px;
+      color: #1d1d1f;
+      font-size: 13px;
+      padding: 7px 10px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .remove-btn { color: #c0392b; border-color: #e0a09c; }
+    .remove-btn:hover { background: #fdecea; }
+    .add-item-btn { color: #0071e3; border-color: #a8cdf0; margin-top: 12px; }
+    .add-item-btn:hover { background: #eef6ff; }
+    .add-sec-btn:hover { background: #eef6ff; }
+
+    .empty-hint { font-size: 13px; color: #86868b; text-align: center; padding: 12px 0 4px; }
+
+    @media (max-width: 640px) {
+      .item-row { grid-template-columns: 1fr 1fr; }
+      .item-row .remove-btn { justify-self: start; }
+      .side-inputs { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <h1>Manage Menu</h1>
+    <div class="topbar-actions">
+      <span class="status" id="status"></span>
+      <a class="btn btn-link" href="index.html">View menu</a>
+      <button class="btn btn-gray" id="btnReset">Reset</button>
+      <button class="btn btn-blue" id="btnSave">Save</button>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <input class="cafe-input" id="cafeEn" placeholder="Menu subtitle (e.g. Our Menu)">
+
+    <div id="sections"></div>
+    <button class="add-sec-btn" id="btnAddSection">+ Add section</button>
+  </div>
+
+  <script src="menu.js"></script>
+  <script>
+    var cfg = morLoad();
+    var sectionsEl = document.getElementById("sections");
+    var statusEl = document.getElementById("status");
+
+    document.getElementById("cafeEn").value = cfg.cafe.en;
+
+    function field(labelText, value, className) {
+      var f = document.createElement("div");
+      f.className = "field";
+      if (className) f.setAttribute("data-field", className);
+      var l = document.createElement("label");
+      l.textContent = labelText;
+      var i = document.createElement("input");
+      i.type = "text";
+      i.value = value == null ? "" : value;
+      f.appendChild(l);
+      f.appendChild(i);
+      return f;
+    }
+
+    function renderSection(section, si) {
+      var card = document.createElement("div");
+      card.className = "card";
+
+      var head = document.createElement("div");
+      head.className = "card-head";
+      var title = document.createElement("div");
+      title.className = "card-title";
+      title.textContent = "Section " + (si + 1);
+
+      var side = document.createElement("div");
+      side.className = "side-inputs";
+      var enF = field("Section name (English)", section.en, "sec-en");
+      var arF = field("اسم القسم (عربي)", section.ar, "sec-ar");
+      side.appendChild(enF);
+      side.appendChild(arF);
+
+      var delSec = document.createElement("button");
+      delSec.className = "remove-btn";
+      delSec.textContent = "Remove section";
+      delSec.addEventListener("click", function () {
+        card.remove();
+      });
+      head.appendChild(title);
+      head.appendChild(delSec);
+      card.appendChild(head);
+      card.appendChild(side);
+
+      var itemsBox = document.createElement("div");
+      itemsBox.className = "items-box";
+
+      function addItem(myItem) {
+        var row = document.createElement("div");
+        row.className = "item-row";
+
+        var it = myItem || { ar: "", en: "", size: "", price: "" };
+        var fAr = field("العربية", it.ar);
+        var fEn = field("English", it.en);
+        var fSize = field("Size", it.size);
+        var fPrice = field("Price (SR)", it.price);
+        var rm = document.createElement("button");
+        rm.className = "remove-btn";
+        rm.textContent = "x";
+        rm.addEventListener("click", function () {
+          row.remove();
+        });
+
+        row.appendChild(fEn);
+        row.appendChild(fAr);
+        row.appendChild(fSize);
+        row.appendChild(fPrice);
+        row.appendChild(rm);
+        itemsBox.appendChild(row);
+      }
+
+      section.items.forEach(addItem);
+
+      var addBtn = document.createElement("button");
+      addBtn.className = "add-item-btn";
+      addBtn.textContent = "+ Add item";
+      addBtn.addEventListener("click", function () {
+        addItem(null);
+      });
+
+      card.appendChild(itemsBox);
+      card.appendChild(addBtn);
+      return card;
+    }
+
+    cfg.sections.forEach(function (s, i) {
+      sectionsEl.appendChild(renderSection(s, i));
+    });
+
+    document.getElementById("btnAddSection").addEventListener("click", function () {
+      cfg.sections.push({ en: "New Section", ar: "قسم جديد", items: [] });
+      sectionsEl.appendChild(renderSection(cfg.sections[cfg.sections.length - 1], cfg.sections.length - 1));
+    });
+
+    function collect() {
+      var res = { cafe: { en: document.getElementById("cafeEn").value.trim() }, sections: [] };
+      Array.prototype.forEach.call(sectionsEl.children, function (card) {
+        var sec = { en: "", ar: "", items: [] };
+        var enInput = card.querySelector('[data-field="sec-en"] input');
+        var arInput = card.querySelector('[data-field="sec-ar"] input');
+        sec.en = enInput.value.trim();
+        sec.ar = arInput.value.trim();
+        Array.prototype.forEach.call(card.querySelectorAll(".item-row"), function (row) {
+          var inputs = row.querySelectorAll("input");
+          sec.items.push({
+            en: inputs[0].value.trim(),
+            ar: inputs[1].value.trim(),
+            size: inputs[2].value.trim(),
+            price: inputs[3].value.trim()
+          });
+        });
+        if (sec.en || sec.ar || sec.items.length) res.sections.push(sec);
+      });
+      return res;
+    }
+
+    document.getElementById("btnSave").addEventListener("click", function () {
+      var data = collect();
+      if (!data.cafe.en) data.cafe.en = "Our Menu";
+      if (morSave(data)) {
+        statusEl.textContent = "Saved! Changes now show on the menu page (this device).";
+        setTimeout(function () { statusEl.textContent = ""; }, 4000);
+      } else {
+        statusEl.textContent = "Could not save on this device.";
+      }
+    });
+
+    document.getElementById("btnReset").addEventListener("click", function () {
+      if (!confirm("Reset menu back to the original content?")) return;
+      morReset();
+      location.reload();
+    });
+  </script>
+</body>
+</html>
