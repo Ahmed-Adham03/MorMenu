@@ -168,12 +168,11 @@
     <div class="columns" id="columns"></div>
   </div>
 
-  <script id="menu-data" type="application/json">
-{
+  <script id="menu-data" type="application/json">{
   "cafe": {
     "en": "Our Menu",
-    "hours_en": "Daily 7 AM – 12 AM",
-    "hours_ar": "يومياً من ٧ صباحاً حتى ١٢ مساءً"
+    "hours_en": "Open 24 Hours Daily",
+    "hours_ar": "مفتوح ٢٤ ساعة يومياً"
   },
   "sections": [
     {
@@ -469,8 +468,7 @@
       ]
     }
   ]
-}
-  </script>
+}</script>
   <script>
     var data = JSON.parse(document.getElementById("menu-data").textContent);
     document.getElementById("subtitle").textContent = data.cafe.en;
