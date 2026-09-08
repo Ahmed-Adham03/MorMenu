@@ -15,126 +15,127 @@
       font-family: "Cairo", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       background: linear-gradient(180deg, #FAF8F5 0%, #F2EBE1 100%);
       color: #111111;
-      line-height: 1.5;
+      line-height: 1.35;
       -webkit-font-smoothing: antialiased;
     }
-    @page { size: A4; margin: 12mm; }
+    @page { size: A4; margin: 10mm; }
     .sheet {
       max-width: 210mm;
       margin: 0 auto;
       background: transparent;
-      padding: 14mm 13mm 10mm;
+      padding: 11mm 10mm 8mm;
       min-height: 297mm;
     }
 
-    .masthead { text-align: center; }
-    .masthead .logo { max-width: 150px; height: auto; }
+    .masthead { text-align: center; margin-bottom: 4mm; }
+    .masthead .logo { max-width: 104px; height: auto; }
 
-    .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 14mm 12mm; margin-top: 10mm; }
+    /* ---- Tight 2-column master grid ---- */
+    .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm 6mm; margin-top: 1mm; }
     .group { break-inside: avoid; page-break-inside: avoid; }
 
-    /* ---- Premium typographic category header ---- */
+    /* ---- Slim gold category banner ---- */
     .group-head {
-      display: flex; align-items: center; gap: 16px;
-      padding: 16px 1mm 12px;
-      margin-bottom: 2mm;
-      border-top: 2px solid rgba(197, 155, 39, 0.55);
-      position: relative;
+      display: flex; align-items: center; gap: 8px;
+      background: linear-gradient(90deg, #E4B96B 0%, #D4A359 100%);
+      border-radius: 3px;
+      padding: 3px 8px;
+      margin-bottom: 1mm;
     }
-    .group-head .lang { display: flex; flex-direction: column; line-height: 1.12; flex: 1; min-width: 0; }
     .group-head .en {
       font-family: "Playfair Display", Georgia, serif;
-      font-weight: 800; font-size: 32px;
-      letter-spacing: 2.5px; text-transform: uppercase;
-      color: #111111;
+      font-weight: 800; font-size: 15px;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: #201507;
       line-height: 1.1;
-    }
-    .group-head .en::after {
-      content: "";
-      display: block;
-      width: 90px; height: 4px;
-      background: linear-gradient(90deg, #C59B27, rgba(197, 155, 39, 0.25));
-      margin-top: 8px;
     }
     .group-head .ar {
       direction: rtl; text-align: right;
       font-family: "Cairo", sans-serif;
-      font-weight: 800; font-size: 21px;
-      color: #1B1A17;
-      margin-top: 7px;
+      font-weight: 800; font-size: 12px;
+      color: #33210C;
+      margin-left: auto;
+      line-height: 1.1;
     }
     .group-head img.ic {
-      width: 42px; height: 42px; flex: none;
+      width: 20px; height: 20px; flex: none;
       object-fit: contain;
-      border: 2px solid #C59B27;
-      border-radius: 10px;
+      border: 1px solid #B98A2F;
+      border-radius: 4px;
       background: #FAF8F5;
-      align-self: center;
-    }
-    .items { padding: 2mm 1mm 2mm; }
-
-    /* ---- One row per size entry, generous print spacing ---- */
-    .item {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 13px 0;
-      border-bottom: 1px solid rgba(197, 155, 39, 0.35);
-    }
-    .item:last-child { border-bottom: none; }
-
-    .item .names { min-width: 0; }
-    .item .name {
-      font-family: "Playfair Display", Georgia, serif;
-      font-weight: 700; font-size: 20px; color: #111111;
-      letter-spacing: 0.2px;
-    }
-    .item .ar {
-      direction: rtl; text-align: right;
-      font-family: "Cairo", sans-serif;
-      font-weight: 700; font-size: 17px;
-      color: #1B1A17;
     }
 
-    /* ---- Column labels: المقاس / السعر over the right grid ---- */
+    /* ---- Column labels فوق المقاس والسعر ---- */
     .cols-head {
-      display: flex; justify-content: flex-end; gap: 12px;
-      padding: 2px 0 6px;
-      border-bottom: 1px solid rgba(197, 155, 39, 0.35);
-      margin-bottom: 2px;
+      display: flex; justify-content: flex-end; gap: 8px;
+      padding: 1px 0 2px;
     }
     .cols-head span {
       font-family: "Cairo", sans-serif;
-      font-weight: 800; font-size: 11.5px;
+      font-weight: 800; font-size: 9px;
       letter-spacing: 1px; direction: rtl;
       color: #8A6A15;
       text-align: right;
+      white-space: nowrap;
     }
-    .cols-head .l-size { min-width: 30mm; }
-    .cols-head .l-price { min-width: 17mm; }
+    .cols-head .l-size { width: 24mm; }
+    .cols-head .l-price { width: 16mm; }
 
-    .item .meta { margin-left: auto; text-align: right; flex: none; display: flex; align-items: baseline; gap: 12px; padding-top: 1px; }
-    .item .meta .oz { font-size: 15px; font-weight: 700; color: #4A4238; min-width: 30mm; text-align: right; }
-    .item .meta .price {
-      font-family: "Playfair Display", Georgia, serif;
-      font-weight: 700; font-size: 22px; color: #111111;
-      min-width: 17mm; text-align: right;
+    /* ---- Compact single-line item rows ---- */
+    .items { padding: 0; }
+    .item {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 2.5px 0;
+      border-bottom: 1px solid rgba(197, 155, 39, 0.3);
     }
-    .riyal { height: 16px; width: auto; vertical-align: -2px; margin-left: 1px; filter: brightness(0) saturate(100%) invert(58%) sepia(42%) saturate(740%) hue-rotate(6deg) brightness(0.93); }
+    .item:last-child { border-bottom: none; }
+    .item .name {
+      flex: 1.15 1 auto; min-width: 0;
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 700; font-size: 12.5px;
+      color: #111111;
+      text-align: left;
+      line-height: 1.15;
+    }
+    .item .ar {
+      flex: 1 1 30%; min-width: 0;
+      direction: rtl; text-align: right;
+      font-family: "Cairo", sans-serif;
+      font-weight: 700; font-size: 11px;
+      color: #1B1A17;
+      line-height: 1.15;
+    }
+    .item .size {
+      flex: 0 0 24mm;
+      text-align: right;
+      font-size: 10.5px; font-weight: 700;
+      color: #4A4238;
+    }
+    .item .price {
+      flex: 0 0 16mm;
+      display: flex; align-items: baseline; justify-content: flex-end; gap: 2px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 700; font-size: 13px;
+      color: #111111;
+      text-align: right;
+    }
+    .riyal { height: 11px; width: auto; vertical-align: -1px; filter: brightness(0) saturate(100%) invert(58%) sepia(42%) saturate(740%) hue-rotate(6deg) brightness(0.93); }
 
     .colophon {
-      margin-top: 12mm; padding-top: 6mm;
-      border-top: 2px solid #C59B27;
-      display: flex; align-items: center; justify-content: space-between; gap: 8mm;
+      margin-top: 6mm; padding-top: 3mm;
+      border-top: 2px solid #D4A359;
+      display: flex; align-items: center; justify-content: space-between; gap: 6mm;
       break-inside: avoid; page-break-inside: avoid;
     }
-    .colophon .note { font-size: 13.5px; color: #1B1A17; line-height: 1.7; font-weight: 700; }
-    .colophon img.qr { width: 88px; height: 88px; background: #FFFFFF; padding: 3px; border: 2px solid #C59B27; }
+    .colophon .note { font-size: 10px; color: #1B1A17; line-height: 1.6; font-weight: 700; }
+    .colophon .note .ar { direction: rtl; text-align: right; }
+    .colophon img.qr { width: 52px; height: 52px; background: #FFFFFF; padding: 2px; border: 1px solid #D4A359; }
 
     .print-btn {
       position: fixed; right: 22px; bottom: 22px;
-      background: linear-gradient(135deg, #D4A359, #C59B27);
+      background: linear-gradient(135deg, #E4B96B, #D4A359);
       color: #FFFFFF; border: none; padding: 11px 16px;
       font-family: "Cairo", sans-serif;
       font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
@@ -160,8 +161,7 @@
 
     <div class="colophon">
       <div class="note">
-        Prices include VAT<br>
-        <span class="ar">الأسعار شاملة ضريبة القيمة المضافة</span>
+        Prices include VAT / الأسعار شاملة ضريبة القيمة المضافة
       </div>
       <img class="qr" src="assets/qr-menu.png" alt="Scan for live menu">
     </div>
@@ -472,7 +472,6 @@
   ]
 };
 
-    /* Category images from assets/ (same set as the live menu) */
     var ICON_IMAGES = {
       hot: { src: "assets/HotDrinks.png", alt: "Hot drinks" },
       coffee: { src: "assets/coffee.png", alt: "Coffee" },
@@ -494,18 +493,6 @@
         var head = document.createElement("div");
         head.className = "group-head";
 
-        var langs = document.createElement("div");
-        langs.className = "lang";
-        var en = document.createElement("span");
-        en.className = "en";
-        en.textContent = s.en;
-        var ar = document.createElement("span");
-        ar.className = "ar";
-        ar.textContent = s.ar;
-        langs.appendChild(en);
-        langs.appendChild(ar);
-        head.appendChild(langs);
-
         if (s.icon && ICON_IMAGES[s.icon]) {
           var ic = document.createElement("img");
           ic.className = "ic";
@@ -513,6 +500,16 @@
           ic.alt = ICON_IMAGES[s.icon].alt;
           head.appendChild(ic);
         }
+
+        var en = document.createElement("span");
+        en.className = "en";
+        en.textContent = s.en;
+        head.appendChild(en);
+
+        var ar = document.createElement("span");
+        ar.className = "ar";
+        ar.textContent = s.ar;
+        head.appendChild(ar);
         g.appendChild(head);
 
         var itemsBox = document.createElement("div");
@@ -522,7 +519,7 @@
         colsHead.className = "cols-head";
         var lSize = document.createElement("span");
         lSize.className = "l-size";
-        lSize.textContent = "المقاس";
+        lSize.textContent = "المقاس(اونص)";
         var lPrice = document.createElement("span");
         lPrice.className = "l-price";
         lPrice.textContent = "السعر";
@@ -534,40 +531,32 @@
           var row = document.createElement("div");
           row.className = "item";
 
-          var names = document.createElement("div");
-          names.className = "names";
-          var nm = document.createElement("div");
-          nm.className = "name";
-          nm.textContent = it.en;
-          names.appendChild(nm);
-          var na = document.createElement("div");
-          na.className = "ar";
-          na.textContent = it.ar;
-          names.appendChild(na);
+          var name = document.createElement("span");
+          name.className = "name";
+          name.textContent = it.en;
+          row.appendChild(name);
 
-          var meta = document.createElement("div");
-          meta.className = "meta";
-          if (it.size) {
-            var oz = document.createElement("span");
-            oz.className = "oz";
-            oz.textContent = it.size;
-            meta.appendChild(oz);
-            var dv = document.createElement("span");
-            dv.className = "divider";
-            meta.appendChild(dv);
-          }
-          var pr = document.createElement("span");
-          pr.className = "price";
-          pr.textContent = it.price;
-          meta.appendChild(pr);
+          var a = document.createElement("span");
+          a.className = "ar";
+          a.textContent = it.ar;
+          row.appendChild(a);
+
+          var size = document.createElement("span");
+          size.className = "size";
+          size.textContent = it.size;
+          row.appendChild(size);
+
+          var price = document.createElement("span");
+          price.className = "price";
+          price.textContent = it.price;
+          row.appendChild(price);
+
           var ry = document.createElement("img");
           ry.className = "riyal";
           ry.src = "assets/Saudi_Riyal_Symbol.svg";
           ry.alt = "";
-          meta.appendChild(ry);
+          price.appendChild(ry);
 
-          row.appendChild(names);
-          row.appendChild(meta);
           itemsBox.appendChild(row);
         });
         g.appendChild(itemsBox);
