@@ -231,14 +231,14 @@
 
         var lb = document.createElement("div");
         lb.className = "item-left";
-        var ar = document.createElement("span");
-        ar.className = "item-ar";
-        ar.textContent = item.ar;
         var en = document.createElement("span");
         en.className = "item-name";
         en.textContent = item.en;
-        lb.appendChild(ar);
+        var ar = document.createElement("span");
+        ar.className = "item-ar";
+        ar.textContent = item.ar;
         lb.appendChild(en);
+        lb.appendChild(ar);
 
         var rb = document.createElement("div");
         rb.className = "item-right";
