@@ -25,6 +25,7 @@
       background: transparent;
       padding: 10mm 10mm 7mm;
       min-height: 297mm;
+      break-inside: avoid; page-break-inside: avoid;
     }
 
     .masthead { text-align: center; margin-bottom: 3mm; }
@@ -34,41 +35,38 @@
     .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 5mm; margin-top: 0; }
     .group { break-inside: avoid; page-break-inside: avoid; }
 
-    /* ---- Slim gold category banner ---- */
+    /* ---- Flat, ultra-compact category header (no card/fill) ---- */
     .group-head {
-      display: flex; align-items: center; gap: 8px;
-      background: linear-gradient(90deg, #E4B96B 0%, #D4A359 100%);
-      border-radius: 3px;
-      padding: 3px 8px;
-      margin-bottom: 0.5mm;
+      display: flex; align-items: baseline; gap: 7px;
+      padding: 1px 0 2px;
+      margin-bottom: 0;
+      border-bottom: 2px solid #D4A359;
     }
     .group-head .en {
       font-family: "Playfair Display", Georgia, serif;
       font-weight: 800; font-size: 15px;
       letter-spacing: 1.5px; text-transform: uppercase;
-      color: #201507;
+      color: #111111;
       line-height: 1.1;
     }
     .group-head .ar {
       direction: rtl; text-align: right;
       font-family: "Cairo", sans-serif;
       font-weight: 800; font-size: 12px;
-      color: #33210C;
+      color: #1B1A17;
       margin-left: auto;
       line-height: 1.1;
     }
     .group-head img.ic {
-      width: 20px; height: 20px; flex: none;
+      width: 17px; height: 17px; flex: none;
       object-fit: contain;
-      border: 1px solid #B98A2F;
-      border-radius: 4px;
-      background: #FAF8F5;
+      align-self: center;
     }
 
     /* ---- Column labels فوق المقاس والسعر ---- */
     .cols-head {
       display: flex; justify-content: flex-end; gap: 7px;
-      padding: 1px 0 1px;
+      padding: 1px 0;
     }
     .cols-head span {
       font-family: "Cairo", sans-serif;
@@ -86,8 +84,8 @@
     .item {
       display: flex;
       align-items: baseline;
-      gap: 7px;
-      padding: 2px 0;
+      gap: 6px;
+      padding: 1.5px 0;
       border-bottom: 1px solid rgba(197, 155, 39, 0.3);
     }
     .item:last-child { border-bottom: none; }
@@ -124,22 +122,16 @@
     .riyal { height: 11px; width: auto; vertical-align: -1px; filter: brightness(0) saturate(100%) invert(58%) sepia(42%) saturate(740%) hue-rotate(6deg) brightness(0.93); }
 
     .footer {
-      margin-top: 4mm;
-      padding-top: 2.5mm;
+      margin-top: 3mm;
+      padding-top: 2mm;
       border-top: 2px solid #D4A359;
       display: flex; justify-content: center;
       break-inside: avoid; page-break-inside: avoid;
     }
-    .footer .qr-wrap { display: flex; flex-direction: column; align-items: center; gap: 1.5mm; }
     .footer img.qr {
-      width: 86px; height: 86px;
+      width: 84px; height: 84px;
       background: #FFFFFF; padding: 2px;
       border: 1px solid #D4A359;
-    }
-    .footer .qr-label {
-      font-family: "Cairo", sans-serif;
-      font-weight: 700; font-size: 9.5px;
-      letter-spacing: 1px; color: #8A6A15;
     }
 
     .print-btn {
@@ -169,10 +161,7 @@
     <div class="columns" id="columns"></div>
 
     <footer class="footer">
-      <div class="qr-wrap">
-        <img class="qr" src="assets/qr-menu.png" alt="Live menu">
-        <div class="qr-label">Live Menu / المنيو المحدث</div>
-      </div>
+      <img class="qr" src="assets/qr-menu.png" alt="Live menu">
     </footer>
   </div>
 
