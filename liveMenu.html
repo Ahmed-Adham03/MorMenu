@@ -158,7 +158,7 @@
   </style>
 </head>
 <body class="notranslate">
-  <div class="menu">
+  <div class="menu" translate="no">
     <div class="menu-header">
       <img class="logo" src="assets/Logo.png" alt="Mor">
       <p class="menu-subtitle" id="subtitle"></p>
@@ -168,7 +168,8 @@
     <div class="columns" id="columns"></div>
   </div>
 
-  <script id="menu-data" type="application/json">{
+  <script id="menu-data" type="application/json">
+{
   "cafe": {
     "en": "Our Menu",
     "hours_en": "Open 24 Hours Daily",
@@ -220,31 +221,31 @@
           "en": "Flat White",
           "ar": "فلات وايت",
           "size": "9 oz",
-          "price": "11"
+          "price": "10"
         },
         {
           "en": "Latte – Small",
           "ar": "لاتيه صغير",
           "size": "9 oz",
-          "price": "10"
+          "price": "9"
         },
         {
           "en": "Latte – Large",
           "ar": "لاتيه كبير",
           "size": "12 oz",
-          "price": "12"
+          "price": "11"
         },
         {
           "en": "Hot Chocolate – Small",
           "ar": "هوت شوكليت صغير",
           "size": "9 oz",
-          "price": "8"
+          "price": "7"
         },
         {
           "en": "Hot Chocolate – Large",
           "ar": "هوت شوكليت كبير",
           "size": "12 oz",
-          "price": "11"
+          "price": "10"
         },
         {
           "en": "Matcha Hot",
@@ -468,7 +469,8 @@
       ]
     }
   ]
-}</script>
+}
+  </script>
   <script>
     var data = JSON.parse(document.getElementById("menu-data").textContent);
     document.getElementById("subtitle").textContent = data.cafe.en;
