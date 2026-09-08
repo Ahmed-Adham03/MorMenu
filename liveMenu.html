@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mor Menu</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .menu {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .menu-header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .logo {
+      max-width: 220px;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    .menu-subtitle {
+      font-size: 22px;
+      font-weight: 600;
+      color: #1d1d1f;
+      letter-spacing: -0.3px;
+    }
+
+    .menu-hours {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #6e6e73;
+    }
+
+    .menu-hours-ar {
+      margin-top: 2px;
+      font-size: 14px;
+      color: #6e6e73;
+      direction: rtl;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    section { margin-bottom: 40px; }
+
+    .section-icon {
+      text-align: center;
+      margin-bottom: 6px;
+      color: #1d1d1f;
+      line-height: 0;
+    }
+
+    .section-icon svg {
+      width: 30px;
+      height: 30px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 2px solid #1d1d1f;
+      padding-bottom: 10px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+
+    .section-title-ar {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1d1d1f;
+      direction: rtl;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px solid #d2d2d7;
+    }
+
+    .item-name {
+      font-size: 16px;
+      font-weight: 500;
+      color: #424245;
+    }
+
+    .item-ar {
+      display: block;
+      font-size: 16px;
+      font-weight: 400;
+      font-family: system-ui, -apple-system, 'Segoe UI', Tahoma, Arial, sans-serif;
+      color: #1d1d1f;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .item-right { text-align: right; flex-shrink: 0; margin-left: 16px; }
+
+    .price {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1d1d1f;
+    }
+
+    .size { font-size: 12px; color: #86868b; }
+
+    .riyal {
+      height: 15px;
+      width: auto;
+      vertical-align: -2px;
+    }
+
+    @media (max-width: 760px) {
+      .columns { grid-template-columns: 1fr; gap: 0; }
+      .menu { padding: 24px 18px 64px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <div class="menu-header">
+      <img class="logo" src="Logo.png" alt="Mor">
+      <p class="menu-subtitle" id="subtitle"></p>
+      <p class="menu-hours" id="hours"></p>
+      <p class="menu-hours-ar" id="hoursAr"></p>
+    </div>
+    <div class="columns" id="columns"></div>
+  </div>
+
+  <script id="menu-data" type="application/json">
+{
+  "cafe": {
+    "en": "Our Menu",
+    "hours_en": "Daily 7 AM – 12 AM",
+    "hours_ar": "يومياً من ٧ صباحاً حتى ١٢ مساءً"
+  },
+  "sections": [
+    {
+      "icon": "hot",
+      "en": "Hot Drinks",
+      "ar": "المشروبات الساخنة",
+      "items": [
+        { "ar": "سبانيش لاتيه صغير", "en": "Spanish Latte Hot – Small", "size": "9 oz", "price": "11" },
+        { "ar": "سبانيش لاتيه كبير", "en": "Spanish Latte Hot – Large", "size": "12 oz", "price": "13" },
+        { "ar": "كابتشينو صغير", "en": "Cappuccino – Small", "size": "9 oz", "price": "10" },
+        { "ar": "كابتشينو كبير", "en": "Cappuccino – Large", "size": "12 oz", "price": "12" },
+        { "ar": "كورتدو", "en": "Cortado", "size": "7 oz", "price": "9" },
+        { "ar": "ماكياتو", "en": "Macchiato", "size": "7 oz", "price": "9" },
+        { "ar": "فلات وايت", "en": "Flat White", "size": "9 oz", "price": "11" },
+        { "ar": "لاتيه صغير", "en": "Latte – Small", "size": "9 oz", "price": "10" },
+        { "ar": "لاتيه كبير", "en": "Latte – Large", "size": "12 oz", "price": "12" },
+        { "ar": "هوت شوكليت صغير", "en": "Hot Chocolate – Small", "size": "9 oz", "price": "8" },
+        { "ar": "هوت شوكليت كبير", "en": "Hot Chocolate – Large", "size": "12 oz", "price": "11" },
+        { "ar": "ماتشا ساخن", "en": "Matcha Hot", "size": "9 oz", "price": "12" }
+      ]
+    },
+    {
+      "icon": "coffee",
+      "en": "Coffee",
+      "ar": "القهوة",
+      "items": [
+        { "ar": "قهوة اليوم صغير (ساخن)", "en": "Today's Coffee Hot – Small", "size": "9 oz", "price": "4.5" },
+        { "ar": "قهوة اليوم صغير (بارد)", "en": "Today's Coffee Iced – Small", "size": "9 oz", "price": "4.5" },
+        { "ar": "قهوة اليوم كبير (ساخن)", "en": "Today's Coffee Hot – Large", "size": "12 oz", "price": "6.9" },
+        { "ar": "قهوة اليوم كبير (بارد)", "en": "Today's Coffee Iced – Large", "size": "12 oz", "price": "6.9" },
+        { "ar": "V60 صغير (ساخن)", "en": "V60 Hot – Small", "size": "11 oz", "price": "10" },
+        { "ar": "V60 كبير (ساخن)", "en": "V60 Hot – Large", "size": "12 oz", "price": "12" },
+        { "ar": "V60 صغير (بارد)", "en": "V60 Iced – Small", "size": "11 oz", "price": "10" },
+        { "ar": "V60 كبير (بارد)", "en": "V60 Iced – Large", "size": "12 oz", "price": "12" },
+        { "ar": "أمريكانو", "en": "Americano", "size": "9 oz", "price": "9" },
+        { "ar": "إسبريسو سنقل", "en": "Espresso Single", "size": "7 oz", "price": "5" },
+        { "ar": "إسبريسو دبل", "en": "Espresso Double", "size": "7 oz", "price": "8" },
+        { "ar": "قهوة تركي صغير", "en": "Turkish Coffee – Small", "size": "7 oz", "price": "7" },
+        { "ar": "قهوة تركي كبير", "en": "Turkish Coffee – Large", "size": "9 oz", "price": "9" }
+      ]
+    },
+    {
+      "icon": "tea",
+      "en": "Tea",
+      "ar": "الشاي",
+      "items": [
+        { "ar": "شاي كرك", "en": "Karak Tea", "size": "9 oz", "price": "5" },
+        { "ar": "شاي إنجليزي", "en": "English Tea", "size": "9 oz", "price": "5" },
+        { "ar": "شاي عادي", "en": "Regular Tea", "size": "9 oz", "price": "3" },
+        { "ar": "شاي بالحليب", "en": "Milk Tea", "size": "9 oz", "price": "4" }
+      ]
+    },
+    {
+      "icon": "cold",
+      "en": "Cold Drinks",
+      "ar": "المشروبات الباردة",
+      "items": [
+        { "ar": "كركدية صغير", "en": "Hibiscus – Small", "size": "11 oz", "price": "8" },
+        { "ar": "كركدية كبير", "en": "Hibiscus – Large", "size": "16 oz", "price": "9" },
+        { "ar": "سبانيش لاتيه ايس صغير", "en": "Spanish Latte Iced – Small", "size": "12 oz", "price": "12" },
+        { "ar": "سبانيش لاتيه ايس كبير", "en": "Spanish Latte Iced – Large", "size": "16 oz", "price": "15" },
+        { "ar": "ماتشا ايس", "en": "Matcha Iced", "size": "12 oz", "price": "14" },
+        { "ar": "تي ايس صغير", "en": "Iced Tea – Small", "size": "12 oz", "price": "12" },
+        { "ar": "تي ايس كبير", "en": "Iced Tea – Large", "size": "16 oz", "price": "15" },
+        { "ar": "أمريكانو ايس", "en": "Iced Americano", "size": "12 oz", "price": "10" },
+        { "ar": "لاتيه ايس", "en": "Iced Latte", "size": "12 oz", "price": "12" },
+        { "ar": "ماكياتو كراميل ايس", "en": "Iced Caramel Macchiato", "size": "13 oz", "price": "13" },
+        { "ar": "لاتيه بيستاشيو ايس", "en": "Iced Pistachio Latte", "size": "12 oz", "price": "14" },
+        { "ar": "موكا وايت ايس", "en": "Iced White Mocha", "size": "12 oz", "price": "13" },
+        { "ar": "موكا ايس صغير", "en": "Mocha Iced – Small", "size": "12 oz", "price": "12" },
+        { "ar": "موكا ايس كبير", "en": "Mocha Iced – Large", "size": "16 oz", "price": "15" },
+        { "ar": "موهيتو ايس", "en": "Mojito Iced", "size": "12 oz", "price": "10" }
+      ]
+    }
+  ]
+}
+  </script>
+  <script>
+    var data = JSON.parse(document.getElementById("menu-data").textContent);
+    document.getElementById("subtitle").textContent = data.cafe.en;
+    if (data.cafe.hours_en) document.getElementById("hours").textContent = data.cafe.hours_en;
+    if (data.cafe.hours_ar) document.getElementById("hoursAr").textContent = data.cafe.hours_ar;
+
+    var columns = document.getElementById("columns");
+    var left = document.createElement("div");
+    var right = document.createElement("div");
+    var mid = Math.ceil(data.sections.length / 2);
+
+    var ICONS = {
+      hot: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 9.5h11v5a4.5 4.5 0 0 1-4.5 4.5H9a4.5 4.5 0 0 1-4.5-4.5v-5Z"/><path d="M15.5 11.5H17a1.75 1.75 0 0 1 0 3.5h-1.5"/><path d="M8 4.5c-.7.8-.7 1.9 0 2.7"/><path d="M12 4.5c-.7.8-.7 1.9 0 2.7"/></svg>',
+      coffee: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C8 4.8 5 8.7 5 11.8 5 16.9 8.2 21 12 21s7-4.1 7-9.2C19 8.7 16 4.8 12 3Z"/><path d="M12 6v12"/><path d="M8.5 11.5c1.2-.9 2.4-1.8 3.5-3"/></svg>',
+      tea: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 10h11v4a4.5 4.5 0 0 1-4.5 4.5H9A4.5 4.5 0 0 1 4.5 14v-4Z"/><path d="M15.5 11H17a1.75 1.75 0 0 1 0 3.5h-1.5"/><path d="M8.5 5c0 1 .8 1.8 1 2.8"/></svg>',
+      cold: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h10l2.2 5.5A6.2 6.2 0 0 1 12 16a6.2 6.2 0 0 1-7.2-7.5L7 3Z"/><path d="M9.5 4L7 9.5"/><rect x="10" y="9" width="2.2" height="2.2" rx="0.5"/></svg>',
+      star: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/></svg>',
+      leaf: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19C5 8 13 4 20 4c0 7-4 15-15 15Z"/><path d="M5 19c3-3 6-6 9-8"/></svg>',
+      heart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.4-7 10-7 10Z"/></svg>'
+    };
+
+    function esc(s) {
+      return String(s == null ? "" : s)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    data.sections.forEach(function (section, i) {
+      var sec = document.createElement("section");
+
+      if (section.icon) {
+        var icon = document.createElement("div");
+        icon.className = "section-icon";
+        if (ICONS[section.icon]) {
+          icon.innerHTML = ICONS[section.icon];
+        } else {
+          icon.textContent = section.icon;
+        }
+        sec.appendChild(icon);
+      }
+
+      var head = document.createElement("div");
+      head.className = "section-header";
+      var t = document.createElement("h2");
+      t.className = "section-title";
+      t.textContent = section.en;
+      var tAr = document.createElement("span");
+      tAr.className = "section-title-ar";
+      tAr.textContent = section.ar;
+      head.appendChild(t);
+      head.appendChild(tAr);
+      sec.appendChild(head);
+
+      section.items.forEach(function (item) {
+        var row = document.createElement("div");
+        row.className = "item";
+
+        var lb = document.createElement("div");
+        lb.className = "item-left";
+        var en = document.createElement("span");
+        en.className = "item-name";
+        en.textContent = item.en;
+        var ar = document.createElement("span");
+        ar.className = "item-ar";
+        ar.textContent = item.ar;
+        lb.appendChild(en);
+        lb.appendChild(ar);
+
+        var rb = document.createElement("div");
+        rb.className = "item-right";
+        rb.innerHTML =
+          '<span class="size">' + esc(item.size) + '</span> &nbsp; ' +
+          '<span class="price">' + esc(item.price) + '</span> <img class="riyal" src="Saudi_Riyal_Symbol.svg" alt="">';
+
+        row.appendChild(lb);
+        row.appendChild(rb);
+        sec.appendChild(row);
+      });
+
+      (i < mid ? left : right).appendChild(sec);
+    });
+
+    columns.appendChild(left);
+    columns.appendChild(right);
+  </script>
+</body>
+</html>
