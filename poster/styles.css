@@ -1,0 +1,205 @@
+/* Borcelle Coffee Series - poster styles */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --paper: #f1e5d7;
+  --ink: #171412;
+  --badge: #4a2a1d;
+  --badge-ink: #ffffff;
+  --line: #30251f;
+  --muted: #6b5f55;
+}
+
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+body {
+  background: #dfd3c4;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 4vh 0;
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  color: var(--ink);
+}
+
+/* Proportional poster: scales the whole artwork with container units */
+.poster {
+  width: min(100vw - 24px, 576px);
+  aspect-ratio: 576 / 818;
+  container-type: inline-size;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 4.5cqw 4.5cqw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+@media (min-width: 600px) {
+  .poster { width: 576px; }
+}
+
+/* ---- Masthead ---- */
+.masthead { text-align: center; }
+.logo {
+  font-family: "Lobster", "Brush Script MT", cursive;
+  font-weight: 400;
+  font-size: 36px;          /* fallback */
+  font-size: 9.2cqw;
+  line-height: 1.05;
+  color: var(--ink);
+  letter-spacing: 0.5px;
+}
+.subtitle {
+  font-size: 9px;           /* fallback */
+  font-size: 1.85cqw;
+  letter-spacing: 4.5px;
+  text-indent: 4.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 0.8cqw;
+}
+
+/* ---- Content layout ---- */
+.content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 44% 56%;
+  column-gap: 3cqw;
+  margin-top: 3.2cqw;
+  min-height: 0;
+}
+
+.col { display: flex; flex-direction: column; min-width: 0; }
+.col-left { gap: 3.5cqw; padding-right: 2cqw; }
+
+/* ---- Product figure ---- */
+.product { display: flex; flex-direction: column; align-items: center; min-width: 0; }
+
+.figure {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 155%;
+  display: block;
+  flex: 1;
+}
+.figure .ph { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+.figure img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+/* Featured cup spans the left column big */
+.featured .figure { flex: 1.35; padding-bottom: 0; height: auto; }
+
+.product-title {
+  font-family: "Bodoni Moda", "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  font-size: 13px;
+  font-size: 2.9cqw;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  text-align: center;
+  color: var(--ink);
+  margin-top: 0.6cqw;
+  white-space: nowrap;
+}
+
+/* ---- Price table ---- */
+.price-table {
+  border: 1px solid var(--line);
+  width: 30cqw;
+  margin-top: 1.2cqw;
+}
+.price-table .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 8px;            /* fallback */
+  font-size: 1.55cqw;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 0.6cqw 2cqw;
+}
+.price-table .row + .row { border-top: 1px solid var(--line); }
+.price-table .row span:last-child { text-align: right; }
+
+/* ---- Badge ---- */
+.badge {
+  position: absolute;
+  top: -3cqw;
+  right: -2.5cqw;
+  width: 11cqw;
+  height: 11cqw;
+  z-index: 3;
+}
+.featured .badge { top: 4cqw; right: -1cqw; width: 12.5cqw; height: 12.5cqw; }
+.badge-text {
+  font-family: "Lobster", "Brush Script MT", cursive;
+  font-size: 34px;
+  fill: var(--badge-ink);
+  letter-spacing: 0.5px;
+}
+
+/* ---- Right mini grid 2x3 ---- */
+.col-right { min-height: 0; }
+.mini-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 3cqw 3.5cqw;
+  min-height: 0;
+}
+.card { display: flex; flex-direction: column; align-items: center; min-height: 0; }
+.card .figure { flex: 1; }
+.card .product-title {
+  font-size: 10.5px;
+  font-size: 2.3cqw;
+  letter-spacing: 0.4px;
+  margin-top: 0.4cqw;
+}
+.card .price-line {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2cqw;
+  margin-top: 0.7cqw;
+  font-size: 7.5px;
+  font-size: 1.5cqw;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--ink);
+}
+.card .price-line b { font-weight: 700; }
+.card .price-line div:nth-child(2) { font-weight: 700; }
+
+/* ---- Footer ---- */
+.colophon { margin-top: 2.6cqw; }
+.colophon hr { border: none; border-top: 1px solid var(--line); }
+.colophon .order {
+  text-align: center;
+  font-size: 10px;
+  font-size: 2cqw;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-indent: 2.5px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-top: 1.4cqw;
+}
+
+/* Maintain composition when very small */
+@media (max-width: 479px) {
+  body { padding: 0; }
+  .poster { border-radius: 0; border-width: 1px; }
+}
+
+@media print {
+  body { background: #fff; padding: 0; }
+  .poster { width: 576px; }
+}

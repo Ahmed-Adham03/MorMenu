@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google" content="notranslate">
+  <title>Borcelle Coffee Series</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Bodoni+Moda:opsz,wght@6..96,700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Shared vector sources: shown only until a real /assets photo image is present -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <g id="glass">
+        <ellipse cx="50" cy="136" rx="32" ry="4.5" fill="rgba(70,48,28,0.28)"/>
+        <rect x="45" y="4" width="10" height="70" rx="4" fill="#f7f0e3" stroke="#171412" stroke-width="0.9"/>
+        <rect x="45" y="4" width="4" height="70" rx="2" fill="rgba(23,20,18,0.10)"/>
+        <path d="M28 34 L72 34 L77 133 Q77 137 73 137 L27 137 Q23 137 23 133 Z" fill="rgba(255,252,244,0.78)" stroke="#171412" stroke-width="1.1"/>
+        <path d="M26 34 L74 34" stroke="#171412" stroke-width="2" stroke-linecap="round"/>
+        <path d="M38 27 Q38 16 50 16 Q62 16 62 27 L62 30 L38 30 Z" fill="rgba(255,252,244,0.72)" stroke="#171412" stroke-width="1"/>
+      </g>
+
+      <g id="cubes">
+        <rect x="34" y="60" width="11" height="13" rx="2" fill="rgba(255,255,255,0.62)" stroke="rgba(23,20,18,0.28)"/>
+        <rect x="50" y="58" width="13" height="12" rx="2" fill="rgba(255,255,255,0.55)" stroke="rgba(23,20,18,0.28)"/>
+        <rect x="43" y="76" width="12" height="12" rx="2" fill="rgba(255,255,255,0.45)" stroke="rgba(23,20,18,0.22)"/>
+      </g>
+
+      <g id="liquid-latte">
+        <use href="#cubes"/>
+        <path d="M27 88 L73 88 L76 133 Q76 136 72 136 L28 136 Q24 136 24 133 Z" fill="#f2e2c9"/>
+        <path d="M27 112 L73 112 L76 133 Q76 136 72 136 L28 136 Q24 136 24 133 Z" fill="#7a4a28"/>
+        <path d="M33 112 q2 -7 8 -3 q6 3 9 -4 q4 -8 10 -3 q6 4 10 -2 q3 -4 6 0 l-1 15 q-4 6 -10 5 q-10 -2 -16 2 q-6 4 -13 2 q-2 -1 -3 -12 Z" fill="#b9834c"/>
+      </g>
+
+      <g id="liquid-caramel">
+        <use href="#cubes"/>
+        <path d="M27 74 L73 74 L76 133 Q76 136 72 136 L28 136 Q24 136 24 133 Z" fill="#f3e5cf"/>
+        <path d="M27 96 L73 96 L76 133 Q76 136 72 136 L28 136 Q24 136 24 133 Z" fill="#9c6837"/>
+        <path d="M30 96 q2 -8 8 -4 q7 5 12 -3 q5 -8 11 -4 q6 4 12 -2 q3 -3 5 1 l-1 17 q-8 4 -16 1 q-8 -3 -15 2 q-8 5 -16 1 Z" fill="#c08a4a"/>
+        <path d="M44 39 q-4 3 -8 1 q-3 -2 -6 2" fill="none" stroke="#c08a4a" stroke-width="3" stroke-linecap="round"/>
+      </g>
+
+      <g id="liquid-cookies">
+        <use href="#cubes"/>
+        <path d="M27 70 L73 70 L76 133 Q76 136 72 136 L28 136 Q24 136 24 133 Z" fill="#f4e9d4"/>
+        <path d="M27 74 L73 74 L31 88 L69 88 L76 133 Q76 136 72 136 L28 136 Q24 136 24 133 Z" fill="#a57847"/>
+        <circle cx="45" cy="120" r="6" fill="#5c3a20"/>
+        <circle cx="45" cy="120" r="2.2" fill="#f4e9d4"/>
+        <circle cx="62" cy="110" r="4.5" fill="#5c3a20"/>
+        <circle cx="62" cy="110" r="1.6" fill="#f4e9d4"/>
+        <circle cx="37" cy="106" r="4" fill="#5c3a20"/>
+        <circle cx="37" cy="106" r="1.4" fill="#f4e9d4"/>
+      </g>
+
+      <g id="liquid-cream">
+        <use href="#cubes"/>
+        <path d="M27 84 L73 84 L76 133 Q76 136 72 136 L28 136 Q24 136 24 133 Z" fill="#f7ecd7"/>
+        <path d="M27 100 L73 100 L76 133 Q76 136 72 136 L28 136 Q24 136 24 133 Z" fill="#8a5a31"/>
+        <path d="M34 100 q3 -6 9 -3 q6 3 11 -4 q5 -6 10 -2 q6 4 9 -1 l1 12 q-6 5 -14 1 q-10 -5 -17 1 q-5 4 -11 0 Z" fill="#c08a4a"/>
+      </g>
+
+      <g id="liquid-matcha">
+        <use href="#cubes"/>
+        <path d="M27 88 L73 88 L76 133 Q76 136 72 136 L28 136 Q24 136 24 133 Z" fill="#b7ce8e"/>
+        <path d="M27 112 L73 112 L76 133 Q76 136 72 136 L28 136 Q24 136 24 133 Z" fill="#8fae6b"/>
+        <path d="M33 112 q2 -6 8 -3 q7 3 12 -4 q5 -6 10 -2 q7 5 10 0 l1 13 q-8 3 -15 0 q-9 -3 -16 2 q-6 4 -12 0 Z" fill="#a4bf7d"/>
+      </g>
+
+      <g id="cup-latte"><use href="#glass"/><use href="#liquid-latte"/></g>
+      <g id="cup-caramel"><use href="#glass"/><use href="#liquid-caramel"/></g>
+      <g id="cup-cookies"><use href="#glass"/><use href="#liquid-cookies"/></g>
+      <g id="cup-cream"><use href="#glass"/><use href="#liquid-cream"/></g>
+      <g id="cup-mocha"><use href="#glass"/><use href="#liquid-latte"/><use href="#liquid-cookies"/></g>
+      <g id="cup-matcha"><use href="#glass"/><use href="#liquid-matcha"/></g>
+    </defs>
+  </svg>
+
+  <div class="poster">
+    <header class="masthead">
+      <h1 class="logo">Borcelle</h1>
+      <p class="subtitle">Coffee Series</p>
+    </header>
+
+    <main class="content">
+      <div class="col col-left">
+        <section class="product featured">
+          <div class="figure">
+            <svg class="ph" viewBox="0 0 100 150" aria-hidden="true"><use href="#cup-latte"/></svg>
+            <img src="assets/featured-latte.png" alt="Ice coffee latte" onerror="this.style.display='none'">
+            <svg class="badge" viewBox="0 0 100 100" role="img" aria-label="Best">
+              <polygon points="50,3 57,25 77,11 68,34 92,29 75,48 93,61 70,66 77,91 55,76 50,98 45,76 23,91 30,66 7,61 25,48 8,29 32,34 23,11 43,25" fill="#4a2a1d"/>
+              <text x="50" y="62" text-anchor="middle" class="badge-text">Best</text>
+            </svg>
+          </div>
+          <h2 class="product-title">Ice Coffee Latte</h2>
+          <div class="price-table" role="table" aria-label="Prices">
+            <div class="row"><span>Small</span><span>$9.50</span></div>
+            <div class="row"><span>Big</span><span>$10.50</span></div>
+          </div>
+        </section>
+
+        <section class="product matcha">
+          <div class="figure">
+            <svg class="ph" viewBox="0 0 100 150" aria-hidden="true"><use href="#cup-matcha"/></svg>
+            <img src="assets/matcha.png" alt="Green iced coffee" onerror="this.style.display='none'">
+            <svg class="badge" viewBox="0 0 100 100" role="img" aria-label="Best">
+              <polygon points="50,3 57,25 77,11 68,34 92,29 75,48 93,61 70,66 77,91 55,76 50,98 45,76 23,91 30,66 7,61 25,48 8,29 32,34 23,11 43,25" fill="#4a2a1d"/>
+              <text x="50" y="62" text-anchor="middle" class="badge-text">Best</text>
+            </svg>
+          </div>
+          <h2 class="product-title">Ice Coffee Latte</h2>
+          <div class="price-table" role="table" aria-label="Prices">
+            <div class="row"><span>Small</span><span>$9.50</span></div>
+            <div class="row"><span>Big</span><span>$10.50</span></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="col col-right">
+        <div class="mini-grid">
+          <div class="card">
+            <div class="figure">
+              <svg class="ph" viewBox="0 0 100 150" aria-hidden="true"><use href="#cup-latte"/></svg>
+              <img src="assets/coffee-1.png" alt="Caramel iced latte" onerror="this.style.display='none'">
+              <svg class="badge" viewBox="0 0 100 100" role="img" aria-label="Best">
+                <polygon points="50,3 57,25 77,11 68,34 92,29 75,48 93,61 70,66 77,91 55,76 50,98 45,76 23,91 30,66 7,61 25,48 8,29 32,34 23,11 43,25" fill="#4a2a1d"/>
+                <text x="50" y="62" text-anchor="middle" class="badge-text">Best</text>
+              </svg>
+            </div>
+            <h2 class="product-title">Ice Coffee Latte</h2>
+            <div class="price-line"><div>Small</div><div>$9.50</div><div>Big</div><div>$10.50</div></div>
+          </div>
+
+          <div class="card">
+            <div class="figure">
+              <svg class="ph" viewBox="0 0 100 150" aria-hidden="true"><use href="#cup-caramel"/></svg>
+              <img src="assets/coffee-2.png" alt="Brown sugar iced coffee" onerror="this.style.display='none'">
+              <svg class="badge" viewBox="0 0 100 100" role="img" aria-label="Best">
+                <polygon points="50,3 57,25 77,11 68,34 92,29 75,48 93,61 70,66 77,91 55,76 50,98 45,76 23,91 30,66 7,61 25,48 8,29 32,34 23,11 43,25" fill="#4a2a1d"/>
+                <text x="50" y="62" text-anchor="middle" class="badge-text">Best</text>
+              </svg>
+            </div>
+            <h2 class="product-title">Ice Coffee Latte</h2>
+            <div class="price-line"><div>Small</div><div>$9.50</div><div>Big</div><div>$10.50</div></div>
+          </div>
+
+          <div class="card">
+            <div class="figure">
+              <svg class="ph" viewBox="0 0 100 150" aria-hidden="true"><use href="#cup-cookies"/></svg>
+              <img src="assets/coffee-3.png" alt="Cookies and cream iced coffee" onerror="this.style.display='none'">
+              <svg class="badge" viewBox="0 0 100 100" role="img" aria-label="Best">
+                <polygon points="50,3 57,25 77,11 68,34 92,29 75,48 93,61 70,66 77,91 55,76 50,98 45,76 23,91 30,66 7,61 25,48 8,29 32,34 23,11 43,25" fill="#4a2a1d"/>
+                <text x="50" y="62" text-anchor="middle" class="badge-text">Best</text>
+              </svg>
+            </div>
+            <h2 class="product-title">Ice Coffee Latte</h2>
+            <div class="price-line"><div>Small</div><div>$9.50</div><div>Big</div><div>$10.50</div></div>
+          </div>
+
+          <div class="card">
+            <div class="figure">
+              <svg class="ph" viewBox="0 0 100 150" aria-hidden="true"><use href="#cup-cream"/></svg>
+              <img src="assets/coffee-4.png" alt="Caramel cream iced coffee" onerror="this.style.display='none'">
+              <svg class="badge" viewBox="0 0 100 100" role="img" aria-label="Best">
+                <polygon points="50,3 57,25 77,11 68,34 92,29 75,48 93,61 70,66 77,91 55,76 50,98 45,76 23,91 30,66 7,61 25,48 8,29 32,34 23,11 43,25" fill="#4a2a1d"/>
+                <text x="50" y="62" text-anchor="middle" class="badge-text">Best</text>
+              </svg>
+            </div>
+            <h2 class="product-title">Ice Coffee Latte</h2>
+            <div class="price-line"><div>Small</div><div>$9.50</div><div>Big</div><div>$10.50</div></div>
+          </div>
+
+          <div class="card">
+            <div class="figure">
+              <svg class="ph" viewBox="0 0 100 150" aria-hidden="true"><use href="#cup-mocha"/></svg>
+              <img src="assets/coffee-5.png" alt="Caramel layered iced coffee" onerror="this.style.display='none'">
+              <svg class="badge" viewBox="0 0 100 100" role="img" aria-label="Best">
+                <polygon points="50,3 57,25 77,11 68,34 92,29 75,48 93,61 70,66 77,91 55,76 50,98 45,76 23,91 30,66 7,61 25,48 8,29 32,34 23,11 43,25" fill="#4a2a1d"/>
+                <text x="50" y="62" text-anchor="middle" class="badge-text">Best</text>
+              </svg>
+            </div>
+            <h2 class="product-title">Ice Coffee Latte</h2>
+            <div class="price-line"><div>Small</div><div>$9.50</div><div>Big</div><div>$10.50</div></div>
+          </div>
+
+          <div class="card">
+            <div class="figure">
+              <svg class="ph" viewBox="0 0 100 150" aria-hidden="true"><use href="#cup-latte"/></svg>
+              <img src="assets/coffee-6.png" alt="White cream iced coffee" onerror="this.style.display='none'">
+              <svg class="badge" viewBox="0 0 100 100" role="img" aria-label="Best">
+                <polygon points="50,3 57,25 77,11 68,34 92,29 75,48 93,61 70,66 77,91 55,76 50,98 45,76 23,91 30,66 7,61 25,48 8,29 32,34 23,11 43,25" fill="#4a2a1d"/>
+                <text x="50" y="62" text-anchor="middle" class="badge-text">Best</text>
+              </svg>
+            </div>
+            <h2 class="product-title">Ice Coffee Latte</h2>
+            <div class="price-line"><div>Small</div><div>$9.50</div><div>Big</div><div>$10.50</div></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="colophon">
+      <hr>
+      <p class="order">Order 123-456-7890</p>
+    </footer>
+  </div>
+
+</body>
+</html>
