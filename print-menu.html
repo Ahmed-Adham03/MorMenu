@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google" content="notranslate">
+  <title>Mor – Menu (Print)</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #231712;
+      color: #f3ead9;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+    @page { size: A4; margin: 12mm; }
+    .sheet {
+      max-width: 210mm;
+      margin: 0 auto;
+      background:
+        radial-gradient(1200px 600px at 85% -10%, #3a2516 0%, rgba(58,37,22,0) 60%),
+        #231712;
+      padding: 14mm 12mm 10mm;
+      min-height: 297mm;
+    }
+
+    .wordmark { text-align: center; margin-bottom: 6mm; }
+    .wordmark img.logo { max-width: 150px; height: auto; }
+    .wordmark h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 40px;
+      letter-spacing: 10px;
+      font-weight: 600;
+      color: #f2c67a;
+      margin-top: 2mm;
+      text-transform: uppercase;
+    }
+    .wordmark .tag {
+      margin-top: 1mm;
+      font-size: 13px;
+      letter-spacing: 4px;
+      color: #c9bda5;
+      text-transform: uppercase;
+    }
+
+    .hours {
+      margin-top: 2mm;
+      text-align: center;
+      font-size: 13px;
+      color: #f2c67a;
+      letter-spacing: 1px;
+    }
+    .hours .ar { display: block; direction: rtl; color: #c9bda5; font-size: 12.5px; }
+
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9mm 8mm;
+      margin-top: 8mm;
+    }
+
+    .group { break-inside: avoid; page-break-inside: avoid; margin-bottom: 2mm; }
+
+    .group-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #f2c67a 0%, #e0a94f 100%);
+      color: #2a1b10;
+      border-radius: 12px;
+      padding: 8px 14px;
+      margin-bottom: 5mm;
+    }
+    .group-head img { width: 34px; height: 34px; object-fit: contain; }
+    .group-head .titles { display: flex; flex-direction: column; line-height: 1.1; }
+    .group-head .en {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    .group-head .ar { direction: rtl; text-align: right; font-size: 13px; font-weight: 600; }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 2.2mm 0;
+      border-bottom: 1px dotted rgba(242, 198, 122, 0.35);
+    }
+    .item:last-child { border-bottom: none; }
+
+    .item .names { flex: 1; min-width: 0; padding-right: 5px; }
+    .item .name { font-size: 12.5px; font-weight: 600; color: #f3ead9; }
+    .item .ar {
+      direction: rtl;
+      text-align: right;
+      font-size: 11.5px;
+      color: #c9bda5;
+      font-weight: 400;
+    }
+
+    .leaders { flex: 1; border-bottom: 1px dotted rgba(242, 198, 122, 0.5); margin: 0 4px 4px; }
+    .item .right { text-align: right; flex-shrink: 0; }
+    .item .price {
+      font-size: 14px;
+      font-weight: 700;
+      color: #f2c67a;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    .item .size { font-size: 9.5px; color: #a8967e; display: block; }
+    .riyal { height: 12px; width: auto; vertical-align: -1px; }
+
+    .footer {
+      margin-top: 9mm;
+      padding-top: 4mm;
+      border-top: 1px solid rgba(242, 198, 122, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6mm;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .footer .note { font-size: 11px; color: #c9bda5; line-height: 1.5; }
+    .footer .note b { color: #f2c67a; font-weight: 600; }
+    .footer .note .ar { direction: rtl; text-align: right; }
+    .footer img.qr { width: 84px; height: 84px; border-radius: 6px; background: #fff; padding: 3px; }
+
+    .print-btn {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      background: #e0a94f;
+      color: #2a1b10;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 22px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+      z-index: 50;
+    }
+    .print-btn:hover { background: #f2c67a; }
+
+    @media (max-width: 640px) {
+      .columns { grid-template-columns: 1fr; }
+    }
+    @media print {
+      body { background: #231712 !important; }
+      .print-btn { display: none; }
+      .sheet { padding: 0; min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="wordmark">
+      <img class="logo" src="assets/Logo.png" alt="Mor">
+      <h1>Mor</h1>
+      <div class="tag">Menu</div>
+      <div class="hours" id="hours"></div>
+    </div>
+
+    <div class="columns" id="columns"></div>
+
+    <div class="footer">
+      <div class="note">
+        <b id="hoursNote"></b><br>
+        Prices include VAT<br>
+        <span class="ar">الأسعار شاملة ضريبة القيمة المضافة</span>
+      </div>
+      <img class="qr" src="assets/qr-menu.png" alt="Scan for live menu">
+    </div>
+  </div>
+
+  <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+
+  <script>
+    var EMBEDDED = {
+  "cafe": {
+    "en": "Our Menu",
+    "hours_en": "Open 24 Hours Daily",
+    "hours_ar": "مفتوح ٢٤ ساعة يومياً"
+  },
+  "sections": [
+    {
+      "icon": "hot",
+      "en": "Hot Drinks",
+      "ar": "المشروبات الساخنة",
+      "items": [
+        {
+          "en": "Spanish Latte Hot – Small",
+          "ar": "سبانيش لاتيه صغير",
+          "size": "9 oz",
+          "price": "10"
+        },
+        {
+          "en": "Spanish Latte Hot – Large",
+          "ar": "سبانيش لاتيه كبير",
+          "size": "12 oz",
+          "price": "12"
+        },
+        {
+          "en": "Cappuccino – Small",
+          "ar": "كابتشينو صغير",
+          "size": "9 oz",
+          "price": "9"
+        },
+        {
+          "en": "Cappuccino – Large",
+          "ar": "كابتشينو كبير",
+          "size": "12 oz",
+          "price": "11"
+        },
+        {
+          "en": "Cortado",
+          "ar": "كورتدو",
+          "size": "7 oz",
+          "price": "9"
+        },
+        {
+          "en": "Macchiato",
+          "ar": "ماكياتو",
+          "size": "7 oz",
+          "price": "9"
+        },
+        {
+          "en": "Flat White",
+          "ar": "فلات وايت",
+          "size": "9 oz",
+          "price": "10"
+        },
+        {
+          "en": "Latte – Small",
+          "ar": "لاتيه صغير",
+          "size": "9 oz",
+          "price": "9"
+        },
+        {
+          "en": "Latte – Large",
+          "ar": "لاتيه كبير",
+          "size": "12 oz",
+          "price": "11"
+        },
+        {
+          "en": "Hot Chocolate – Small",
+          "ar": "هوت شوكليت صغير",
+          "size": "9 oz",
+          "price": "7"
+        },
+        {
+          "en": "Hot Chocolate – Large",
+          "ar": "هوت شوكليت كبير",
+          "size": "12 oz",
+          "price": "10"
+        },
+        {
+          "en": "Matcha Hot",
+          "ar": "ماتشا ساخن",
+          "size": "9 oz",
+          "price": "12"
+        }
+      ]
+    },
+    {
+      "icon": "coffee",
+      "en": "Coffee",
+      "ar": "القهوة",
+      "items": [
+        {
+          "en": "Today's Coffee Hot – Small",
+          "ar": "قهوة اليوم صغير (ساخن)",
+          "size": "9 oz",
+          "price": "4.5"
+        },
+        {
+          "en": "Today's Coffee Iced – Small",
+          "ar": "قهوة اليوم صغير (بارد)",
+          "size": "9 oz",
+          "price": "4.5"
+        },
+        {
+          "en": "Today's Coffee Hot – Large",
+          "ar": "قهوة اليوم كبير (ساخن)",
+          "size": "12 oz",
+          "price": "6.9"
+        },
+        {
+          "en": "Today's Coffee Iced – Large",
+          "ar": "قهوة اليوم كبير (بارد)",
+          "size": "12 oz",
+          "price": "6.9"
+        },
+        {
+          "en": "V60 Hot – Small",
+          "ar": "V60 صغير (ساخن)",
+          "size": "11 oz",
+          "price": "9"
+        },
+        {
+          "en": "V60 Hot – Large",
+          "ar": "V60 كبير (ساخن)",
+          "size": "12 oz",
+          "price": "11"
+        },
+        {
+          "en": "V60 Iced – Small",
+          "ar": "V60 صغير (بارد)",
+          "size": "11 oz",
+          "price": "9"
+        },
+        {
+          "en": "V60 Iced – Large",
+          "ar": "V60 كبير (بارد)",
+          "size": "12 oz",
+          "price": "11"
+        },
+        {
+          "en": "Americano",
+          "ar": "أمريكانو",
+          "size": "9 oz",
+          "price": "8"
+        },
+        {
+          "en": "Espresso Single",
+          "ar": "إسبريسو سنقل",
+          "size": "7 oz",
+          "price": "5"
+        },
+        {
+          "en": "Espresso Double",
+          "ar": "إسبريسو دبل",
+          "size": "7 oz",
+          "price": "8"
+        },
+        {
+          "en": "Turkish Coffee – Small",
+          "ar": "قهوة تركي صغير",
+          "size": "7 oz",
+          "price": "7"
+        },
+        {
+          "en": "Turkish Coffee – Large",
+          "ar": "قهوة تركي كبير",
+          "size": "9 oz",
+          "price": "9"
+        }
+      ]
+    },
+    {
+      "icon": "tea",
+      "en": "Tea",
+      "ar": "الشاي",
+      "items": [
+        {
+          "en": "Karak Tea",
+          "ar": "شاي كرك",
+          "size": "9 oz",
+          "price": "5"
+        },
+        {
+          "en": "English Tea",
+          "ar": "شاي إنجليزي",
+          "size": "9 oz",
+          "price": "5"
+        },
+        {
+          "en": "Regular Tea",
+          "ar": "شاي عادي",
+          "size": "9 oz",
+          "price": "3"
+        },
+        {
+          "en": "Milk Tea",
+          "ar": "شاي بالحليب",
+          "size": "9 oz",
+          "price": "4"
+        }
+      ]
+    },
+    {
+      "icon": "cold",
+      "en": "Cold Drinks",
+      "ar": "المشروبات الباردة",
+      "items": [
+        {
+          "en": "Hibiscus – Small",
+          "ar": "كركدية صغير",
+          "size": "11 oz",
+          "price": "7"
+        },
+        {
+          "en": "Hibiscus – Large",
+          "ar": "كركدية كبير",
+          "size": "16 oz",
+          "price": "9"
+        },
+        {
+          "en": "Spanish Latte Iced – Small",
+          "ar": "سبانيش لاتيه ايس صغير",
+          "size": "12 oz",
+          "price": "11"
+        },
+        {
+          "en": "Spanish Latte Iced – Large",
+          "ar": "سبانيش لاتيه ايس كبير",
+          "size": "16 oz",
+          "price": "14"
+        },
+        {
+          "en": "Matcha Iced",
+          "ar": "ماتشا ايس",
+          "size": "12 oz",
+          "price": "14"
+        },
+        {
+          "en": "Iced Tea – Small",
+          "ar": "تي ايس صغير",
+          "size": "12 oz",
+          "price": "11"
+        },
+        {
+          "en": "Iced Tea – Large",
+          "ar": "تي ايس كبير",
+          "size": "16 oz",
+          "price": "14"
+        },
+        {
+          "en": "Iced Americano",
+          "ar": "أمريكانو ايس",
+          "size": "12 oz",
+          "price": "10"
+        },
+        {
+          "en": "Iced Latte",
+          "ar": "لاتيه ايس",
+          "size": "12 oz",
+          "price": "11"
+        },
+        {
+          "en": "Iced Caramel Macchiato",
+          "ar": "ماكياتو كراميل ايس",
+          "size": "12 oz",
+          "price": "12"
+        },
+        {
+          "en": "Iced Pistachio Latte",
+          "ar": "لاتيه بيستاشيو ايس",
+          "size": "12 oz",
+          "price": "14"
+        },
+        {
+          "en": "Iced White Mocha",
+          "ar": "موكا وايت ايس",
+          "size": "12 oz",
+          "price": "12"
+        },
+        {
+          "en": "Mocha Iced – Small",
+          "ar": "موكا ايس صغير",
+          "size": "12 oz",
+          "price": "11"
+        },
+        {
+          "en": "Mocha Iced – Large",
+          "ar": "موكا ايس كبير",
+          "size": "16 oz",
+          "price": "14"
+        },
+        {
+          "en": "Mojito Iced",
+          "ar": "موهيتو ايس",
+          "size": "12 oz",
+          "price": "9"
+        }
+      ]
+    }
+  ]
+};
+
+    var ICONS = {
+      hot: "assets/HotDrinks.png",
+      coffee: "assets/coffee.png",
+      tea: "assets/Tea.png",
+      cold: "assets/coldDrinks.png"
+    };
+
+    function render(data) {
+      var bar = document.getElementById("hours");
+      bar.textContent = data.cafe.hours_en;
+      var barAr = document.createElement("span");
+      barAr.className = "ar";
+      barAr.textContent = data.cafe.hours_ar;
+      bar.appendChild(barAr);
+      document.getElementById("hoursNote").textContent = data.cafe.hours_en;
+
+      var cols = document.getElementById("columns");
+      cols.textContent = "";
+      var left = document.createElement("div");
+      var right = document.createElement("div");
+      var mid = Math.ceil(data.sections.length / 2);
+
+      data.sections.forEach(function (s, i) {
+        var g = document.createElement("div");
+        g.className = "group";
+        var head = document.createElement("div");
+        head.className = "group-head";
+        if (s.icon && ICONS[s.icon]) {
+          var im = document.createElement("img");
+          im.src = ICONS[s.icon];
+          im.alt = s.en;
+          head.appendChild(im);
+        }
+        var tt = document.createElement("div");
+        tt.className = "titles";
+        var en = document.createElement("span");
+        en.className = "en";
+        en.textContent = s.en;
+        var ar = document.createElement("span");
+        ar.className = "ar";
+        ar.textContent = s.ar;
+        tt.appendChild(en);
+        tt.appendChild(ar);
+        head.appendChild(tt);
+        g.appendChild(head);
+
+        s.items.forEach(function (it) {
+          var row = document.createElement("div");
+          row.className = "item";
+          var names = document.createElement("div");
+          names.className = "names";
+          var nm = document.createElement("div");
+          nm.className = "name";
+          nm.textContent = it.en;
+          var na = document.createElement("div");
+          na.className = "ar";
+          na.textContent = it.ar;
+          names.appendChild(nm);
+          names.appendChild(na);
+
+          var lead = document.createElement("div");
+          lead.className = "leaders";
+
+          var rightBox = document.createElement("div");
+          rightBox.className = "right";
+          var pr = document.createElement("span");
+          pr.className = "price";
+          pr.textContent = it.price;
+          var ry = document.createElement("img");
+          ry.className = "riyal";
+          ry.src = "assets/Saudi_Riyal_Symbol.svg";
+          ry.alt = "";
+          rightBox.appendChild(pr);
+          rightBox.appendChild(ry);
+          if (it.size) {
+            var sz = document.createElement("span");
+            sz.className = "size";
+            sz.textContent = it.size;
+            rightBox.appendChild(sz);
+          }
+
+          row.appendChild(names);
+          row.appendChild(lead);
+          row.appendChild(rightBox);
+          g.appendChild(row);
+        });
+
+        (i < mid ? left : right).appendChild(g);
+      });
+
+      cols.appendChild(left);
+      cols.appendChild(right);
+    }
+
+    render(EMBEDDED);
+
+    if (window.location.protocol === "http:" || window.location.protocol === "https:") {
+      fetch("liveMenu.html")
+        .then(function (r) { return r.text(); })
+        .then(function (html) {
+          var m = html.match(/<script id="menu-data" type="application\/json">([\s\S]*?)<\/script>/);
+          if (m) {
+            render(JSON.parse(m[1]));
+          }
+        })
+        .catch(function () {});
+    }
+  </script>
+</body>
+</html>
