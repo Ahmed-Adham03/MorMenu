@@ -15,13 +15,24 @@
     }
 
     .menu {
-      max-width: 640px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 48px 24px 80px;
+      padding: 40px 24px 80px;
+    }
+
+    .menu-header {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .logo {
+      max-width: 220px;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px;
     }
 
     .menu-title {
-      text-align: center;
       font-size: 40px;
       font-weight: 600;
       letter-spacing: -0.5px;
@@ -29,10 +40,14 @@
     }
 
     .menu-subtitle {
-      text-align: center;
       color: #86868b;
       font-size: 16px;
-      margin-bottom: 40px;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
     }
 
     section { margin-bottom: 40px; }
@@ -41,7 +56,7 @@
       display: flex;
       align-items: baseline;
       justify-content: space-between;
-      border-bottom: 1px solid #d2d2d7;
+      border-bottom: 2px solid #1d1d1f;
       padding-bottom: 10px;
       margin-bottom: 16px;
     }
@@ -53,8 +68,9 @@
     }
 
     .section-title-ar {
-      font-size: 14px;
-      color: #86868b;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1d1d1f;
       direction: rtl;
     }
 
@@ -63,421 +79,439 @@
       justify-content: space-between;
       align-items: baseline;
       padding: 12px 0;
-      border-bottom: 1px solid #e8e8ed;
+      border-bottom: 1px solid #d2d2d7;
     }
 
     .item-name {
       font-size: 16px;
-      font-weight: 400;
+      font-weight: 500;
+      color: #424245;
     }
 
     .item-ar {
       display: block;
-      font-size: 13px;
-      color: #86868b;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: system-ui, -apple-system, 'Segoe UI', Tahoma, Arial, sans-serif;
+      color: #1d1d1f;
       direction: rtl;
-      margin-top: 1px;
+      text-align: right;
     }
 
     .item-right { text-align: right; flex-shrink: 0; margin-left: 16px; }
 
     .price {
-      font-size: 16px;
-      font-weight: 600;
-      color: #0071e3;
+      font-size: 17px;
+      font-weight: 700;
+      color: #1d1d1f;
     }
 
     .size { font-size: 12px; color: #86868b; }
+
+    @media (max-width: 760px) {
+      .columns { grid-template-columns: 1fr; gap: 0; }
+      .menu { padding: 24px 18px 64px; }
+    }
   </style>
 </head>
 <body>
   <div class="menu">
-    <h1 class="menu-title">Mor</h1>
-    <p class="menu-subtitle">Our Menu</p>
+    <div class="menu-header">
+      <img class="logo" src="Logo.png" alt="Mor">
+      <p class="menu-subtitle">Our Menu</p>
+    </div>
 
-    <!-- HOT DRINKS -->
-    <section>
-      <div class="section-header">
-        <h2 class="section-title">Hot Drinks</h2>
-        <span class="section-title-ar">المشروبات الساخنة</span>
+    <div class="columns">
+      <!-- LEFT COLUMN -->
+      <div>
+        <!-- HOT DRINKS -->
+        <section>
+          <div class="section-header">
+            <h2 class="section-title">Hot Drinks</h2>
+            <span class="section-title-ar">المشروبات الساخنة</span>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">سبانيش لاتيه صغير</span>
+              <span class="item-name">Spanish Latte Hot – Small</span>
+            </div>
+            <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">11</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">سبانيش لاتيه كبير</span>
+              <span class="item-name">Spanish Latte Hot – Large</span>
+            </div>
+            <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">13</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">كابتشينو صغير</span>
+              <span class="item-name">Cappuccino – Small</span>
+            </div>
+            <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">10</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">كابتشينو كبير</span>
+              <span class="item-name">Cappuccino – Large</span>
+            </div>
+            <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">12</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">كورتدو</span>
+              <span class="item-name">Cortado</span>
+            </div>
+            <div class="item-right"><span class="size">7 oz</span> &nbsp; <span class="price">9</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">ماكياتو</span>
+              <span class="item-name">Macchiato</span>
+            </div>
+            <div class="item-right"><span class="size">7 oz</span> &nbsp; <span class="price">9</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">فلات وايت</span>
+              <span class="item-name">Flat White</span>
+            </div>
+            <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">11</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">لاتيه صغير</span>
+              <span class="item-name">Latte – Small</span>
+            </div>
+            <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">10</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">لاتيه كبير</span>
+              <span class="item-name">Latte – Large</span>
+            </div>
+            <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">12</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">هوت شوكليت صغير</span>
+              <span class="item-name">Hot Chocolate – Small</span>
+            </div>
+            <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">8</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">هوت شوكليت كبير</span>
+              <span class="item-name">Hot Chocolate – Large</span>
+            </div>
+            <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">11</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">ماتشا ساخن</span>
+              <span class="item-name">Matcha Hot</span>
+            </div>
+            <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">12</span> SR</div>
+          </div>
+        </section>
+
+        <!-- COFFEE -->
+        <section>
+          <div class="section-header">
+            <h2 class="section-title">Coffee</h2>
+            <span class="section-title-ar">القهوة</span>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">قهوة اليوم صغير (ساخن)</span>
+              <span class="item-name">Today's Coffee Hot – Small</span>
+            </div>
+            <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">4.5</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">قهوة اليوم صغير (بارد)</span>
+              <span class="item-name">Today's Coffee Iced – Small</span>
+            </div>
+            <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">4.5</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">قهوة اليوم كبير (ساخن)</span>
+              <span class="item-name">Today's Coffee Hot – Large</span>
+            </div>
+            <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">6.9</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">قهوة اليوم كبير (بارد)</span>
+              <span class="item-name">Today's Coffee Iced – Large</span>
+            </div>
+            <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">6.9</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">V60 صغير (ساخن)</span>
+              <span class="item-name">V60 Hot – Small</span>
+            </div>
+            <div class="item-right"><span class="size">11 oz</span> &nbsp; <span class="price">10</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">V60 كبير (ساخن)</span>
+              <span class="item-name">V60 Hot – Large</span>
+            </div>
+            <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">12</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">V60 صغير (بارد)</span>
+              <span class="item-name">V60 Iced – Small</span>
+            </div>
+            <div class="item-right"><span class="size">11 oz</span> &nbsp; <span class="price">10</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">V60 كبير (بارد)</span>
+              <span class="item-name">V60 Iced – Large</span>
+            </div>
+            <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">12</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">أمريكانو</span>
+              <span class="item-name">Americano</span>
+            </div>
+            <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">9</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">إسبريسو سنقل</span>
+              <span class="item-name">Espresso Single</span>
+            </div>
+            <div class="item-right"><span class="size">7 oz</span> &nbsp; <span class="price">5</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">إسبريسو دبل</span>
+              <span class="item-name">Espresso Double</span>
+            </div>
+            <div class="item-right"><span class="size">7 oz</span> &nbsp; <span class="price">8</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">قهوة تركي صغير</span>
+              <span class="item-name">Turkish Coffee – Small</span>
+            </div>
+            <div class="item-right"><span class="size">7 oz</span> &nbsp; <span class="price">7</span> SR</div>
+          </div>
+
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">قهوة تركي كبير</span>
+              <span class="item-name">Turkish Coffee – Large</span>
+            </div>
+            <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">9</span> SR</div>
+          </div>
+        </section>
       </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Spanish Latte Hot – Small</span>
-          <span class="item-ar">صغير لاتيه سبانش</span>
-        </div>
-        <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">11</span> SR</div>
-      </div>
+      <!-- RIGHT COLUMN -->
+      <div>
+        <!-- TEA -->
+        <section>
+          <div class="section-header">
+            <h2 class="section-title">Tea</h2>
+            <span class="section-title-ar">الشاي</span>
+          </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Spanish Latte Hot – Large</span>
-          <span class="item-ar">كبير لاتيه سبانش</span>
-        </div>
-        <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">13</span> SR</div>
-      </div>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">شاي كرك</span>
+              <span class="item-name">Karak Tea</span>
+            </div>
+            <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">5</span> SR</div>
+          </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Cappuccino – Small</span>
-          <span class="item-ar">صغير كبتشينو</span>
-        </div>
-        <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">10</span> SR</div>
-      </div>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">شاي إنجليزي</span>
+              <span class="item-name">English Tea</span>
+            </div>
+            <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">5</span> SR</div>
+          </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Cappuccino – Large</span>
-          <span class="item-ar">كبير كبتشينو</span>
-        </div>
-        <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">12</span> SR</div>
-      </div>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">شاي عادي</span>
+              <span class="item-name">Regular Tea</span>
+            </div>
+            <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">3</span> SR</div>
+          </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Cortado</span>
-          <span class="item-ar">كورتادو</span>
-        </div>
-        <div class="item-right"><span class="size">7 oz</span> &nbsp; <span class="price">9</span> SR</div>
-      </div>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">شاي بالحليب</span>
+              <span class="item-name">Milk Tea</span>
+            </div>
+            <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">4</span> SR</div>
+          </div>
+        </section>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Macchiato</span>
-          <span class="item-ar">ميكياتو</span>
-        </div>
-        <div class="item-right"><span class="size">7 oz</span> &nbsp; <span class="price">9</span> SR</div>
-      </div>
+        <!-- COLD DRINKS -->
+        <section>
+          <div class="section-header">
+            <h2 class="section-title">Cold Drinks</h2>
+            <span class="section-title-ar">المشروبات الباردة</span>
+          </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Flat White</span>
-          <span class="item-ar">وايت فلايت</span>
-        </div>
-        <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">11</span> SR</div>
-      </div>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">كركدية صغير</span>
+              <span class="item-name">Hibiscus – Small</span>
+            </div>
+            <div class="item-right"><span class="size">11 oz</span> &nbsp; <span class="price">8</span> SR</div>
+          </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Latte – Small</span>
-          <span class="item-ar">صغير لاتيه</span>
-        </div>
-        <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">10</span> SR</div>
-      </div>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">كركدية كبير</span>
+              <span class="item-name">Hibiscus – Large</span>
+            </div>
+            <div class="item-right"><span class="size">16 oz</span> &nbsp; <span class="price">9</span> SR</div>
+          </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Latte – Large</span>
-          <span class="item-ar">كبير لاتيه</span>
-        </div>
-        <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">12</span> SR</div>
-      </div>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">سبانيش لاتيه ايس صغير</span>
+              <span class="item-name">Spanish Latte Iced – Small</span>
+            </div>
+            <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">12</span> SR</div>
+          </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Hot Chocolate – Small</span>
-          <span class="item-ar">صغير شوكليت هوت</span>
-        </div>
-        <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">8</span> SR</div>
-      </div>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">سبانيش لاتيه ايس كبير</span>
+              <span class="item-name">Spanish Latte Iced – Large</span>
+            </div>
+            <div class="item-right"><span class="size">16 oz</span> &nbsp; <span class="price">15</span> SR</div>
+          </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Hot Chocolate – Large</span>
-          <span class="item-ar">كبير شوكليت هوت</span>
-        </div>
-        <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">11</span> SR</div>
-      </div>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">ماتشا ايس</span>
+              <span class="item-name">Matcha Iced</span>
+            </div>
+            <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">14</span> SR</div>
+          </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Matcha Hot</span>
-          <span class="item-ar">ساخن ماتشا</span>
-        </div>
-        <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">12</span> SR</div>
-      </div>
-    </section>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">تي ايس صغير</span>
+              <span class="item-name">Iced Tea – Small</span>
+            </div>
+            <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">12</span> SR</div>
+          </div>
 
-    <!-- COFFEE -->
-    <section>
-      <div class="section-header">
-        <h2 class="section-title">Coffee</h2>
-        <span class="section-title-ar">القهوة</span>
-      </div>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">تي ايس كبير</span>
+              <span class="item-name">Iced Tea – Large</span>
+            </div>
+            <div class="item-right"><span class="size">16 oz</span> &nbsp; <span class="price">15</span> SR</div>
+          </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Today's Coffee Hot – Small</span>
-          <span class="item-ar">صغير قهوة اليوم (ساخن)</span>
-        </div>
-        <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">4.5</span> SR</div>
-      </div>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">أمريكانو ايس</span>
+              <span class="item-name">Iced Americano</span>
+            </div>
+            <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">10</span> SR</div>
+          </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Today's Coffee Iced – Small</span>
-          <span class="item-ar">صغير قهوة اليوم (بارد)</span>
-        </div>
-        <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">4.5</span> SR</div>
-      </div>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">لاتيه ايس</span>
+              <span class="item-name">Iced Latte</span>
+            </div>
+            <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">12</span> SR</div>
+          </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Today's Coffee Hot – Large</span>
-          <span class="item-ar">كبير قهوة اليوم (ساخن)</span>
-        </div>
-        <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">6.9</span> SR</div>
-      </div>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">ماكياتو كراميل ايس</span>
+              <span class="item-name">Iced Caramel Macchiato</span>
+            </div>
+            <div class="item-right"><span class="size">13 oz</span> &nbsp; <span class="price">13</span> SR</div>
+          </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Today's Coffee Iced – Large</span>
-          <span class="item-ar">كبير قهوة اليوم (بارد)</span>
-        </div>
-        <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">6.9</span> SR</div>
-      </div>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">لاتيه بيستاشيو ايس</span>
+              <span class="item-name">Iced Pistachio Latte</span>
+            </div>
+            <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">14</span> SR</div>
+          </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">V60 Hot – Small</span>
-          <span class="item-ar">صغير V60 (ساخن)</span>
-        </div>
-        <div class="item-right"><span class="size">11 oz</span> &nbsp; <span class="price">10</span> SR</div>
-      </div>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">موكا وايت ايس</span>
+              <span class="item-name">Iced White Mocha</span>
+            </div>
+            <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">13</span> SR</div>
+          </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">V60 Hot – Large</span>
-          <span class="item-ar">كبير V60 (ساخن)</span>
-        </div>
-        <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">12</span> SR</div>
-      </div>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">موكا ايس صغير</span>
+              <span class="item-name">Mocha Iced – Small</span>
+            </div>
+            <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">12</span> SR</div>
+          </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">V60 Iced – Small</span>
-          <span class="item-ar">صغير V60 (بارد)</span>
-        </div>
-        <div class="item-right"><span class="size">11 oz</span> &nbsp; <span class="price">10</span> SR</div>
-      </div>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">موكا ايس كبير</span>
+              <span class="item-name">Mocha Iced – Large</span>
+            </div>
+            <div class="item-right"><span class="size">16 oz</span> &nbsp; <span class="price">15</span> SR</div>
+          </div>
 
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">V60 Iced – Large</span>
-          <span class="item-ar">كبير V60 (بارد)</span>
-        </div>
-        <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">12</span> SR</div>
+          <div class="item">
+            <div class="item-left">
+              <span class="item-ar">موهيتو ايس</span>
+              <span class="item-name">Mojito Iced</span>
+            </div>
+            <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">10</span> SR</div>
+          </div>
+        </section>
       </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Americano</span>
-          <span class="item-ar">امريكانو</span>
-        </div>
-        <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">9</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Espresso Single</span>
-          <span class="item-ar">سنقل اسبريسو</span>
-        </div>
-        <div class="item-right"><span class="size">7 oz</span> &nbsp; <span class="price">5</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Espresso Double</span>
-          <span class="item-ar">دبل اسبريسو</span>
-        </div>
-        <div class="item-right"><span class="size">7 oz</span> &nbsp; <span class="price">8</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Turkish Coffee – Small</span>
-          <span class="item-ar">صغير قهوة تركي</span>
-        </div>
-        <div class="item-right"><span class="size">7 oz</span> &nbsp; <span class="price">7</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Turkish Coffee – Large</span>
-          <span class="item-ar">كبير قهوة تركي</span>
-        </div>
-        <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">9</span> SR</div>
-      </div>
-    </section>
-
-    <!-- TEA -->
-    <section>
-      <div class="section-header">
-        <h2 class="section-title">Tea</h2>
-        <span class="section-title-ar">الشاي</span>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Karak Tea</span>
-          <span class="item-ar">كرك شاي</span>
-        </div>
-        <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">5</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">English Tea</span>
-          <span class="item-ar">شاي انجليزي</span>
-        </div>
-        <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">5</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Regular Tea</span>
-          <span class="item-ar">شاي عادي</span>
-        </div>
-        <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">3</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Milk Tea</span>
-          <span class="item-ar">شاي بالحليب</span>
-        </div>
-        <div class="item-right"><span class="size">9 oz</span> &nbsp; <span class="price">4</span> SR</div>
-      </div>
-    </section>
-
-    <!-- COLD DRINKS -->
-    <section>
-      <div class="section-header">
-        <h2 class="section-title">Cold Drinks</h2>
-        <span class="section-title-ar">المشروبات الباردة</span>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Hibiscus – Small</span>
-          <span class="item-ar">صغير كركدية</span>
-        </div>
-        <div class="item-right"><span class="size">11 oz</span> &nbsp; <span class="price">8</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Hibiscus – Large</span>
-          <span class="item-ar">كبير كركدية</span>
-        </div>
-        <div class="item-right"><span class="size">16 oz</span> &nbsp; <span class="price">9</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Spanish Latte Iced – Small</span>
-          <span class="item-ar">صغير لاتيه سبانش ايس</span>
-        </div>
-        <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">12</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Spanish Latte Iced – Large</span>
-          <span class="item-ar">كبير لاتيه سبانش ايس</span>
-        </div>
-        <div class="item-right"><span class="size">16 oz</span> &nbsp; <span class="price">15</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Matcha Iced</span>
-          <span class="item-ar">ماتشا ايس</span>
-        </div>
-        <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">14</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Iced Tea – Small</span>
-          <span class="item-ar">صغير تي ايس</span>
-        </div>
-        <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">12</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Iced Tea – Large</span>
-          <span class="item-ar">كبير تي ايس</span>
-        </div>
-        <div class="item-right"><span class="size">16 oz</span> &nbsp; <span class="price">15</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Iced Americano</span>
-          <span class="item-ar">امريكانو ايس</span>
-        </div>
-        <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">10</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Iced Latte</span>
-          <span class="item-ar">لاتيه ايس</span>
-        </div>
-        <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">12</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Iced Caramel Macchiato</span>
-          <span class="item-ar">ميكاتو كراميل ايس</span>
-        </div>
-        <div class="item-right"><span class="size">13 oz</span> &nbsp; <span class="price">13</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Iced Pistachio Latte</span>
-          <span class="item-ar">لاتيه بيستاشيو ايس</span>
-        </div>
-        <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">14</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Iced White Mocha</span>
-          <span class="item-ar">موكا وايت ايس</span>
-        </div>
-        <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">13</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Mocha Iced – Small</span>
-          <span class="item-ar">صغير موكا ايس</span>
-        </div>
-        <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">12</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Mocha Iced – Large</span>
-          <span class="item-ar">كبير موكا ايس</span>
-        </div>
-        <div class="item-right"><span class="size">16 oz</span> &nbsp; <span class="price">15</span> SR</div>
-      </div>
-
-      <div class="item">
-        <div class="item-left">
-          <span class="item-name">Mojito Iced</span>
-          <span class="item-ar">موهيتو بارد</span>
-        </div>
-        <div class="item-right"><span class="size">12 oz</span> &nbsp; <span class="price">10</span> SR</div>
-      </div>
-    </section>
+    </div>
   </div>
 </body>
 </html>
