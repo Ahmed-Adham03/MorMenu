@@ -58,12 +58,6 @@
       margin-left: auto;
       line-height: 1.1;
     }
-    .group-head img.ic {
-      width: 18px; height: 18px; flex: none;
-      object-fit: contain;
-      border: 1.5px solid #FFF7E8;
-      border-radius: 4px;
-    }
 
     /* ---- Column labels فوق المقاس والسعر ---- */
     .cols-head {
@@ -472,13 +466,6 @@
   ]
 };
 
-    var ICON_IMAGES = {
-      hot: { src: "assets/HotDrinks.png", alt: "Hot drinks" },
-      coffee: { src: "assets/coffee.png", alt: "Coffee" },
-      tea: { src: "assets/Tea.png", alt: "Tea" },
-      cold: { src: "assets/coldDrinks.png", alt: "Cold drinks" }
-    };
-
     function render(data) {
       var cols = document.getElementById("columns");
       cols.textContent = "";
@@ -492,14 +479,6 @@
 
         var head = document.createElement("div");
         head.className = "group-head";
-
-        if (s.icon && ICON_IMAGES[s.icon]) {
-          var ic = document.createElement("img");
-          ic.className = "ic";
-          ic.src = ICON_IMAGES[s.icon].src;
-          ic.alt = ICON_IMAGES[s.icon].alt;
-          head.appendChild(ic);
-        }
 
         var en = document.createElement("span");
         en.className = "en";
